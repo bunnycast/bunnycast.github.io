@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1. branch 분기점을 생성하고 독립적으로 코드를 변경하도록 도와주는 모델  git branch : 현재 생성된 branch를 확인할 수 있음 (* 현재 선택된 브랜치) masterdevelop   코드작업에서 병목현상을 방지하며, 다수의 작업자가 복합적으로 프로젝트를 진행할 수 있도록 도와준다.  2. branch vs commit branch : 작">
+  <meta name="description" content="수의 합 구하기조건 1. 정수 N 입력N개의 줄에 정수가 1개씩 입력정수가 “0” 일 경우에는 가장 최근에 쓴 수를 지움아닐 경우 해당 수를 씀N &#x3D; int(input()) for i in range(N):    n &#x3D; int(input())    if n &#x3D;&#x3D; 0:        del lst[-1]    else:        lst.append(n) p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="200511">
-<meta property="og:url" content="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/11/200511/index.html">
+<meta property="og:title" content="200525">
+<meta property="og:url" content="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/25/200525/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="1. branch 분기점을 생성하고 독립적으로 코드를 변경하도록 도와주는 모델  git branch : 현재 생성된 branch를 확인할 수 있음 (* 현재 선택된 브랜치) masterdevelop   코드작업에서 병목현상을 방지하며, 다수의 작업자가 복합적으로 프로젝트를 진행할 수 있도록 도와준다.  2. branch vs commit branch : 작">
+<meta property="og:description" content="수의 합 구하기조건 1. 정수 N 입력N개의 줄에 정수가 1개씩 입력정수가 “0” 일 경우에는 가장 최근에 쓴 수를 지움아닐 경우 해당 수를 씀N &#x3D; int(input()) for i in range(N):    n &#x3D; int(input())    if n &#x3D;&#x3D; 0:        del lst[-1]    else:        lst.append(n) p">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-11T08:37:39.000Z">
-<meta property="article:modified_time" content="2020-05-22T17:37:40.326Z">
+<meta property="article:published_time" content="2020-05-25T14:16:00.000Z">
+<meta property="article:modified_time" content="2020-05-25T14:17:32.246Z">
 <meta property="article:author" content="Daniel Kim">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="수의 합 구하기">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/11/200511/">
+<link rel="canonical" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/25/200525/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>200511 | My Blog</title>
+  <title>200525 | My Blog</title>
   
 
 
@@ -153,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/11/200511/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/25/200525/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -166,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          200511
+          200525
         </h1>
 
         <div class="post-meta">
@@ -175,16 +176,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-11 17:37:39" itemprop="dateCreated datePublished" datetime="2020-05-11T17:37:39+09:00">2020-05-11</time>
+              <time title="Created: 2020-05-25 23:16:00 / Modified: 23:17:32" itemprop="dateCreated datePublished" datetime="2020-05-25T23:16:00+09:00">2020-05-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-23 02:37:40" itemprop="dateModified" datetime="2020-05-23T02:37:40+09:00">2020-05-23</time>
-              </span>
 
           
 
@@ -197,67 +192,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-branch"><a href="#1-branch" class="headerlink" title="1. branch"></a>1. branch</h2><ul>
-<li>분기점을 생성하고 독립적으로 코드를 변경하도록 도와주는 모델 </li>
-<li>git branch : 현재 생성된 branch를 확인할 수 있음 (* 현재 선택된 브랜치)<ul>
-<li>master<br>develop</li>
-</ul>
-</li>
-<li>코드작업에서 병목현상을 방지하며, 다수의 작업자가 복합적으로 프로젝트를 진행할 수 있도록 도와준다.</li>
-</ul>
-<h2 id="2-branch-vs-commit"><a href="#2-branch-vs-commit" class="headerlink" title="2. branch vs commit"></a>2. branch vs commit</h2><ul>
-<li>branch : 작업의 공간적 이동</li>
-<li>commit : 작업의 시간적 이동(체크포인트)</li>
-</ul>
-<h2 id="3-branch-주요-명령어"><a href="#3-branch-주요-명령어" class="headerlink" title="3. branch 주요 명령어"></a>3. branch 주요 명령어</h2><ul>
-<li>git branch -D [브랜치명] : 브랜치 삭제</li>
-<li>git checkout [브랜치명] : 브랜치 변경</li>
-</ul>
-<h2 id="4-merge와-conflict"><a href="#4-merge와-conflict" class="headerlink" title="4. merge와 conflict"></a>4. merge와 conflict</h2><ul>
-<li>merge : 각기 다른 브랜치에서 작업한 내용을 <strong>병합</strong> (a.k.a 땡겨옴) git merge 는 다른 브랜치를 현재 Checkout된 브랜치에 Merge 하는 명령</li>
-<li>conflict : 작업한 브랜치의 파일 버전보다 master 버전이 앞선 경우, 작업한 내용과 수정한 사항의 코드 충돌을 의미함<br>&lt;&lt;&lt;&lt;&lt; HEAD - 현재 브랜치에서 수정된 내용<br>========== - 구분자<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>boty-init - 끌어오는 브랜치의 수정내용</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>수정 후 solve: conflict로 커밋</li>
-</ul>
-<h2 id="5-master-branch의-의의"><a href="#5-master-branch의-의의" class="headerlink" title="5. master branch의 의의"></a>5. master branch의 의의</h2><ul>
-<li>사용자가 쓰게 될 최종 단계의 코드만 존재</li>
-<li>운영환경에서 작업하면 시말서 각</li>
-<li>develop 브랜치에서 개발, 테스트 이후 master 브랜치로 병합</li>
-</ul>
-<h2 id="6-git-flow"><a href="#6-git-flow" class="headerlink" title="6. git flow"></a>6. git flow</h2><p>master : 운영<br>  develop : 개발<br>    feature : 개발의 작은 기능 단위 </p>
-<h2 id="7-pull-request"><a href="#7-pull-request" class="headerlink" title="7. pull request"></a>7. pull request</h2><ul>
-<li>개인 환경에서 수정한 내용을 운영에 반영하도록 요청하는 단계</li>
-</ul>
-<ol>
-<li>Fork : 프로젝트 관리자가 생성한 repo에서 신청 </li>
-<li>clone, remote설정<ul>
-<li>clone : 내 repo에 추가된 url (git clone urls)</li>
-<li>remote : 관리자의 repo 주소 추가 (git remote add [pmorigin] url)</li>
-</ul>
-</li>
-<li>branch 생성<ul>
-<li>develop</li>
-<li>feature/기능명</li>
-</ul>
-</li>
-<li>수정 작업 후 add, commit, push</li>
-<li>pull Request 생성<ul>
-<li>내 repo &gt; pull request 신청</li>
-</ul>
-</li>
-<li>코드리뷰, Merge Pull Reqest</li>
-<li>Merge 이후 branch 삭제 및 동기화</li>
-</ol>
+        <h1 id="수의-합-구하기"><a href="#수의-합-구하기" class="headerlink" title="수의 합 구하기"></a>수의 합 구하기</h1><h2 id="조건-1-정수-N-입력"><a href="#조건-1-정수-N-입력" class="headerlink" title="조건 1. 정수 N 입력"></a>조건 1. 정수 N 입력</h2><h2 id="N개의-줄에-정수가-1개씩-입력"><a href="#N개의-줄에-정수가-1개씩-입력" class="headerlink" title="N개의 줄에 정수가 1개씩 입력"></a>N개의 줄에 정수가 1개씩 입력</h2><h2 id="정수가-“0”-일-경우에는-가장-최근에-쓴-수를-지움"><a href="#정수가-“0”-일-경우에는-가장-최근에-쓴-수를-지움" class="headerlink" title="정수가 “0” 일 경우에는 가장 최근에 쓴 수를 지움"></a>정수가 “0” 일 경우에는 가장 최근에 쓴 수를 지움</h2><h2 id="아닐-경우-해당-수를-씀"><a href="#아닐-경우-해당-수를-씀" class="headerlink" title="아닐 경우 해당 수를 씀"></a>아닐 경우 해당 수를 씀</h2><p>N = int(input())</p>
+<p>for i in range(N):<br>    n = int(input())<br>    if n == 0:<br>        del lst[-1]<br>    else:<br>        lst.append(n)</p>
+<p>print(sum(lst))</p>
 
     </div>
 
@@ -267,7 +204,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%EC%88%98%EC%9D%98-%ED%95%A9-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="tag"># 수의 합 구하기</a>
           </div>
 
         
@@ -276,13 +214,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/11/200508/" rel="prev" title="200508.md">
-      <i class="fa fa-chevron-left"></i> 200508.md
+    <a href="/2020/05/23/200522/" rel="prev" title="200522">
+      <i class="fa fa-chevron-left"></i> 200522
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/21/200521/" rel="next" title="200521">
-      200521 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -341,7 +276,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-branch"><span class="nav-number">1.</span> <span class="nav-text">1. branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-branch-vs-commit"><span class="nav-number">2.</span> <span class="nav-text">2. branch vs commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-branch-주요-명령어"><span class="nav-number">3.</span> <span class="nav-text">3. branch 주요 명령어</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-merge와-conflict"><span class="nav-number">4.</span> <span class="nav-text">4. merge와 conflict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-master-branch의-의의"><span class="nav-number">5.</span> <span class="nav-text">5. master branch의 의의</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-git-flow"><span class="nav-number">6.</span> <span class="nav-text">6. git flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-pull-request"><span class="nav-number">7.</span> <span class="nav-text">7. pull request</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#수의-합-구하기"><span class="nav-number">1.</span> <span class="nav-text">수의 합 구하기</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#조건-1-정수-N-입력"><span class="nav-number">1.1.</span> <span class="nav-text">조건 1. 정수 N 입력</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N개의-줄에-정수가-1개씩-입력"><span class="nav-number">1.2.</span> <span class="nav-text">N개의 줄에 정수가 1개씩 입력</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정수가-“0”-일-경우에는-가장-최근에-쓴-수를-지움"><span class="nav-number">1.3.</span> <span class="nav-text">정수가 “0” 일 경우에는 가장 최근에 쓴 수를 지움</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#아닐-경우-해당-수를-씀"><span class="nav-number">1.4.</span> <span class="nav-text">아닐 경우 해당 수를 씀</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
