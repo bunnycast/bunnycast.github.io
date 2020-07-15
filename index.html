@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-15 23:07:13 / Modified: 23:47:45" itemprop="dateCreated datePublished" datetime="2020-07-15T23:07:13+09:00">2020-07-15</time>
+              <time title="Created: 2020-07-15 23:07:13" itemprop="dateCreated datePublished" datetime="2020-07-15T23:07:13+09:00">2020-07-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 00:25:00" itemprop="dateModified" datetime="2020-07-16T00:25:00+09:00">2020-07-16</time>
+              </span>
 
           
 
@@ -215,14 +221,18 @@
 <li>부트 로더(Boot Loader)</li>
 </ul>
 </li>
+<li>부팅 과정<ul>
+<li>컴퓨터 Power On &gt; POST(Power-On Self-Test) &gt;Rom (Bootstrap Load) &gt; HDD 안의 OS &gt; 메인메모리(RAM)로 가져옴 </li>
+</ul>
+</li>
 <li>운영체제 구성<ul>
 <li>관리(Management) 프로그램</li>
 <li>프로세서, 메모리, 디스크, 입출력장치 드라이브</li>
 <li>커널(Kernal) vs 명령 해석기(Shell, Command Interpreter)</li>
 </ul>
 </li>
-<li>운영체제의 위치 <ul>
-<li>하드웨어 &gt; <code>운영체제</code> &gt; 애플리케이션</li>
+<li>운영체제의 위상 <ul>
+<li>하드웨어 &gt; <code>운영체제(커널 &gt; 쉘)</code> &gt; 애플리케이션</li>
 </ul>
 </li>
 <li>OS vs Government<ul>
@@ -271,6 +281,29 @@
 <li>시간 제약(deadline)이 있는 프로그래밍</li>
 <li>공장 자동화(FA), 군사, 공항, 우주, 네비게이션, etc</li>
 <li>실시간 운영체제(RTOS)    </li>
+</ul>
+</li>
+</ol>
+<h3 id="5-인터럽트"><a href="#5-인터럽트" class="headerlink" title="5. 인터럽트"></a>5. 인터럽트</h3><ol>
+<li>인터럽트(중단, 새치기)<ul>
+<li>프로세서(CPU)가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 또는 예외상황이 발생하여 처리가 필요할 경우에 프로세서에게 알려 처리할 수 있도록 하는 것</li>
+<li>현대 운영체제는 인터럽트 기반 시스템</li>
+<li>부팅이 끝난 후 운영체제는 메모리에 상주(resident)하며 사건(event)을 기다리며 대기</li>
+</ul>
+</li>
+<li>하드웨어 인터럽트<ul>
+<li>인터럽트 결과 운영체제 내의 특정 코드(Interrupt Service Routine) 실행</li>
+<li>실행 종료 후 대기</li>
+<li>키보드 마우스 입력 등의 동작</li>
+</ul>
+</li>
+<li>소프트웨어 인터럽트(swi)<ul>
+<li>애플리케이션이 실행중 다른 프로그램을 실행 시 소프트웨어 인터럽트 발생(예: hwp 이용 중 하드에서 파일을 읽어오는 경우)</li>
+<li>ISR 실행, 종료 후 원래 프로그램으로 복귀</li>
+</ul>
+</li>
+<li>내부 인터럽트(Internal Interrupt)<ul>
+<li>divide by zero</li>
 </ul>
 </li>
 </ol>
