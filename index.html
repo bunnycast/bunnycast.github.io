@@ -147,6 +147,152 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/15/200715/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/15/200715/" class="post-title-link" itemprop="url">020715.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-15 23:07:13 / Modified: 23:40:41" itemprop="dateCreated datePublished" datetime="2020-07-15T23:07:13+09:00">2020-07-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="운영체제-1"><a href="#운영체제-1" class="headerlink" title="운영체제 1"></a>운영체제 1</h1><h3 id="1-운영체제란"><a href="#1-운영체제란" class="headerlink" title="1. 운영체제란?"></a>1. 운영체제란?</h3><ol>
+<li>Windows 10, 7, Linux, MS-DOS, Mac OX, iOS</li>
+<li>운영체제 : Operating System</li>
+<li>컴퓨터에 운영체제가 없다면?<ul>
+<li>컴퓨터: 프로세서(CPU) &amp; 메모리</li>
+<li>전원을 켜면 휘발성 메모리(RAM)가 먼저 활성화됨 -&gt; 야생마와 같은 상태</li>
+</ul>
+</li>
+<li>운영체제의 역할<ul>
+<li>단일 프로그램 실행</li>
+<li>프로그램을 여러개 실행</li>
+<li>인쇄, 출력, 저장   </li>
+</ul>
+</li>
+<li>운영체제의 의의<ul>
+<li>하드웨어 관리</li>
+<li>성능 향상 (Performance)</li>
+<li>편의성 (Convinence)</li>
+<li><code>Control program for Computer</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-Booting"><a href="#2-Booting" class="headerlink" title="2. Booting"></a>2. Booting</h3><ol>
+<li>컴퓨터 구조<ul>
+<li>프로세서(CPU), 메모리(RAM, ROM), 디스크</li>
+<li>POST(Power-On Self-Test)</li>
+<li>부트 로더(Boot Loader)</li>
+</ul>
+</li>
+<li>운영체제 구성<ul>
+<li>관리(Management) 프로그램</li>
+<li>프로세서, 메모리, 디스크, 입출력장치 드라이브</li>
+<li>커널(Kernal) vs 명령 해석기(Shell, Command Interpreter)</li>
+</ul>
+</li>
+<li>운영체제의 위치 <ul>
+<li>하드웨어 &gt; <code>운영체제</code> &gt; 애플리케이션</li>
+</ul>
+</li>
+<li>OS vs Government<ul>
+<li>자원 관리자(resource manager)</li>
+<li>자원 할당자(resource allocator)</li>
+<li>주어진 자원의 활용</li>
+<li>직접 일하지 않음</li>
+<li>업무별로 부서가 할당됨</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-OS-History-하드웨어-발전-운영체제-발전"><a href="#3-OS-History-하드웨어-발전-운영체제-발전" class="headerlink" title="3. OS History : 하드웨어 발전 / 운영체제 발전"></a>3. OS History : 하드웨어 발전 / 운영체제 발전</h3><ol>
+<li>시초 : 1940년대 말<ul>
+<li>card reader &gt; memory &gt; processing &gt; line printer</li>
+</ul>
+</li>
+<li>Batch Processing System(일괄처리) : Resident Monitor</li>
+<li>Multiprogramming System(다중프로그래밍)<ul>
+<li>아직까지 컴퓨터는 비싼 자원</li>
+<li>빠른 COU vs 느린 i/o -&gt; 메모리에 여러개의 job over loading</li>
+<li>CPU 스케쥴링, 메모리 관리, 보호가 중요</li>
+</ul>
+</li>
+<li>Tims-Sharing System(시공유 시스템)<ul>
+<li>ms 단위로 강제 전환, interactive system(대화형)</li>
+<li><code>가상 메모리, 프로세스간 통신, 동기화</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="4-고등-운영체제"><a href="#4-고등-운영체제" class="headerlink" title="4. 고등 운영체제"></a>4. 고등 운영체제</h3><ol>
+<li>다중 프로세서(Multiprocessor System)<ul>
+<li>병렬(parallel)</li>
+<li>강결합(tightly-coupled)</li>
+<li>performance, cost, reliability의 장점이 있음</li>
+<li>1 memory, multi CPU</li>
+</ul>
+</li>
+<li>분산 시스템(Distributed System)<ul>
+<li>다중 컴퓨터 시스템(multi-computer)</li>
+<li>소결합(loosely-coupled)</li>
+<li>분산 운영체제(Distributed OS)</li>
+<li>multi cpu, multi memory, connected by lan</li>
+</ul>
+</li>
+<li>실시간 시스템(Real-time System) <ul>
+<li>시간 제약(deadline)이 있는 프로그래밍</li>
+<li>공장 자동화(FA), 군사, 공항, 우주, 네비게이션, etc</li>
+<li>실시간 운영체제(RTOS)    </li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/25/200525/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -990,74 +1136,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/04/how-to-start-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Daniel Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/04/how-to-start-Hexo/" class="post-title-link" itemprop="url">how-to-start-Hexo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-04 15:27:52" itemprop="dateCreated datePublished" datetime="2020-05-04T15:27:52+09:00">2020-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-23 02:37:40" itemprop="dateModified" datetime="2020-05-23T02:37:40+09:00">2020-05-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="200504-TIL"><a href="#200504-TIL" class="headerlink" title="200504 TIL"></a>200504 TIL</h1><h2 id="1-Making-Git-Accounts"><a href="#1-Making-Git-Accounts" class="headerlink" title="1. Making Git Accounts"></a>1. Making Git Accounts</h2><h2 id="2-Git-commit-push-clone"><a href="#2-Git-commit-push-clone" class="headerlink" title="2. Git commit, push, clone"></a>2. Git commit, push, clone</h2><h2 id="3-Creating-Github-Blog"><a href="#3-Creating-Github-Blog" class="headerlink" title="3. Creating Github Blog"></a>3. Creating Github Blog</h2><p><a href="https://bunnycast.github.io/" target="_blank" rel="noopener">Blog</a></p>
-<h2 id="4-How-to-start-hexo"><a href="#4-How-to-start-hexo" class="headerlink" title="4. How to start hexo"></a>4. How to start hexo</h2><p><a href="/2020/05/04/hello-world/">Link</a></p>
-<h2 id="5-Make-a-post"><a href="#5-Make-a-post" class="headerlink" title="5. Make a post"></a>5. Make a post</h2><h2 id="6-Modify-Theme"><a href="#6-Modify-Theme" class="headerlink" title="6. Modify Theme"></a>6. Modify Theme</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1122,12 +1205,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
