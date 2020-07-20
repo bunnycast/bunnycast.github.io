@@ -147,6 +147,214 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/20/200720/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/20/200720/" class="post-title-link" itemprop="url">운영체제 3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-20 12:17:26 / Modified: 15:12:19" itemprop="dateCreated datePublished" datetime="2020-07-20T12:17:26+09:00">2020-07-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2-이중모드"><a href="#2-이중모드" class="headerlink" title="2. 이중모드"></a>2. 이중모드</h3><ol>
+<li>한(1) 컴퓨터를 여러 사람(N)이 동시에 사용하는 것 <ul>
+<li>여러 개의 프로그램을 한 사람이 사용 </li>
+<li>한 사람의 고의 혹은 실수 프로그램이 전체에 영향</li>
+</ul>
+</li>
+<li>사용자 프로그램은 STOP 등의 치명적 명령에 접근 불가하도록 설정<ul>
+<li>User Vs Supervisor(System, Monitor, Priviliged)</li>
+</ul>
+</li>
+<li>특권 명령(priviliged instructions)<ul>
+<li>STOP, HALT, RESET, SET_TIMER, SET_HW …</li>
+</ul>
+</li>
+<li>CPU = register(bit) + ALU(연산장치) + ControlUnit<ul>
+<li>register : carry, negative, zero, overflow 등의 모드(flag 0/1)로 표현 </li>
+<li>register에 이중모드를 나타내는 bit를 추가 </li>
+</ul>
+</li>
+<li>이중모드 작동 process<ul>
+<li>Power On -&gt; Booting (<code>System Mode 1</code>)</li>
+<li>Application, User Program (System Mode 1인 상태에서 프로그램 메모리에 로딩 &gt; System Mode 0 &gt; User Mode)</li>
+<li>인터럽트 (ex : Application 의 Data를 HDD에 저장, 프린트 등), <code>System Mode 1</code> &gt; User Mode</li>
+<li>즉 하나의 프로그램이 실행될 때 이중모드의 상태가 계속 변경된다.</li>
+<li>User Mode에서 강제로 특권 명령 실행 시도할 경우<br>  권한 없는 사용자가 잘못된 명령을 내렸다는 내부 인터럽트 발생하여 ISR에 의해프로그램 강제 종료</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-보호-Protection"><a href="#3-보호-Protection" class="headerlink" title="3. 보호(Protection)"></a>3. 보호(Protection)</h3><ol>
+<li>입출력장치 보호 <ul>
+<li>키보드, 마우스, 프린터, 랜, 스피커, 모니터 등</li>
+<li>IN / OUT 명령어를 특권 명령으로 설정</li>
+<li>User Mode에서 명령 접속시 priviliged instruction violation으로 인식하여 ISR 실행하여 프로그램 강제 종료</li>
+<li>solution : 운영체제에 요청하여 System Mode로 전환 후 작업 &gt; 작업 마치면 User Mode 복귀, 올바른 요청이 아니면 거부</li>
+</ul>
+</li>
+<li>메모리 보호<ul>
+<li>다른 사용자의 메모리, 운영체제 영역 메모리 접근 (Hacking)</li>
+<li>Segment Violation 발생</li>
+<li>CPU -&gt; [ <code>MMU</code> (BASE~LIMIT) ] -&gt; MEMORY : Address Bus<br>  잘못 접근할 시 ISR 실행</li>
+<li>Memory Management Unit의 BASE, LIMIT 값 설정은 특권명령</li>
+</ul>
+</li>
+<li>CPU 보호<ul>
+<li>한 사용자가 실수 혹은 고의로 CPU 시간 독점 (ex : 재귀 함수)</li>
+<li>solution : Timer를 두어 일정시간 경과 시 타이머 인터럽트<br>  인터럽트 &gt; OS &gt; 다른 프로그램으로 강제 전환</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-운영체제-서비스-OS-Government"><a href="#4-운영체제-서비스-OS-Government" class="headerlink" title="4. 운영체제 서비스 (OS = Government)"></a>4. 운영체제 서비스 (OS = Government)</h3><ol>
+<li>프로세스 관리(Process Management)<ul>
+<li>프로세스 : 메모리에서 <code>실행 중</code>인 프로그램(program in execution)</li>
+<li>프로세스 생성, 소멸(creation, deletion)</li>
+<li>활동 일시 중지, 재개(suspend, resume)</li>
+<li>프로세스간 통신(IPC:interprocess communication)</li>
+<li>동기화(synchronization)</li>
+<li>교착상태 처리(deadlock handling)</li>
+</ul>
+</li>
+<li>주기억장치 관리(Main Memory Management)<ul>
+<li>프로세스에 메모리 할당 (allocation)</li>
+<li>할당된 메모리 추적, 감시</li>
+<li>프로세스 종료 시 메모리 회수</li>
+<li><code>메모리의 효과적 사용</code></li>
+<li>가상메모리 : 실제 메모리보다 큰 용량의 메모리 갖도록</li>
+</ul>
+</li>
+<li>파일 관리(File Management)<ul>
+<li>Track/Sector - ‘파일’ Mapping</li>
+<li>파일/디렉토리의 생성, 삭제 및 기본 동작 (open, close, read, write, create, delete)</li>
+<li>백업</li>
+</ul>
+</li>
+<li>보조기억장치 관리(Secondary Storage Management)<ul>
+<li>HDD, Flash Memory etc</li>
+<li>빈 공간(block) 관리, 할당, 스케쥴링</li>
+</ul>
+</li>
+<li>입출력 장치 관리(I/O Device Management)<ul>
+<li>하드웨어 장치 드라이브</li>
+<li>buffering, caching, spooling등의 방법으로 입출력 장치 성능 향상</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-시스템-콜-System-Call"><a href="#5-시스템-콜-System-Call" class="headerlink" title="5. 시스템 콜(System Call)"></a>5. 시스템 콜(System Call)</h3><ul>
+<li>프로그램 &gt; 운영체제 서비스를 받기 위한 호출</li>
+<li>Process: end, abort, load, execute, create, terminate, get/set<br>attributes, wait event, signal event </li>
+<li>Memory: allocate, free</li>
+<li>File: create, delete, open, close, read, write, get/set attributes</li>
+<li>Device: request, release, read, write, get/set attributes,<br>attach/detache devices</li>
+<li>Information: get/set time, get/set system data</li>
+<li>Communication: socket, send, receive</li>
+</ul>
+<h2 id="III-프로세스-관리"><a href="#III-프로세스-관리" class="headerlink" title="III. 프로세스 관리"></a>III. 프로세스 관리</h2><h3 id="1-프로세스"><a href="#1-프로세스" class="headerlink" title="1. 프로세스"></a>1. 프로세스</h3><ol>
+<li>프로세스 : program in execution</li>
+<li>프로세스 상태 및 천이<ul>
+<li>new / ready / running / waiting / terminated</li>
+<li>ready &gt; <code>CPU</code> &gt; running</li>
+<li>running &gt; <code>I/O start</code> &gt; waiting</li>
+<li>waiting &gt; <code>I/O end</code> &gt; ready        </li>
+<li>running &gt; <code>Time Expired</code> &gt; ready (Time-Sharing System)</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-PCB-Process-Control-Block"><a href="#2-PCB-Process-Control-Block" class="headerlink" title="2. PCB (Process Control Block)"></a>2. PCB (Process Control Block)</h3><ul>
+<li>TCB(Tack Control Block)</li>
+<li>프로세스에 대한 모든 상태 정보가 담겨 있음<br>  process state, PC(program counter, 순서), register, MMU(base, limit), CPU Time, id, list of open files …</li>
+<li>OS의 프로세스 관리 부서에 위치함</li>
+</ul>
+<h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ol>
+<li>Job Queue (long-term scheduler, 메모리가 빌때만 작동하므로 시간이 많이 소요됨)<ul>
+<li>프로세서에 의해서 처리되기를 기다리고 있는 job의 집단이나 대기 행렬</li>
+<li>Job Scheduler : Job Queue의 우선순위 결정, OS의 프로세스 관리 부서</li>
+</ul>
+</li>
+<li>Ready Queue (short-term scheduler)<ul>
+<li>Ready 상태에 있는 프로세스들, 즉 메모리에 load되어있는 queue</li>
+<li><code>CPU Scheduler</code></li>
+</ul>
+</li>
+<li>Device Queue<ul>
+<li>device를 사용하기 위해 대기하는 queue</li>
+<li>Device Scheduler</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-Multiprogramming"><a href="#4-Multiprogramming" class="headerlink" title="4. Multiprogramming"></a>4. Multiprogramming</h3><ol>
+<li>Degree of multiprogramming <ul>
+<li>메인 메모리에 프로세스를 얼마나 많이 올릴 수 있는가?</li>
+</ul>
+</li>
+<li>I/O-bound(입출력) process vs CPU-bound(계산) <ul>
+<li>process 를 적절히 믹스해 job scheduling &gt; 컴퓨터의 성능 향상</li>
+</ul>
+</li>
+<li>mediun-term scheduler<ul>
+<li>유휴 메모리를 main memory에서 swap device(backing store, HDD)로 swap in/out 하여 메모리 공간 확보</li>
+</ul>
+</li>
+<li>Context Switching(프로세서의 프로세스 전환)<ul>
+<li>Scheduler : Ready Queue에 의한 switching</li>
+<li>Dispatcher : 프로세서가 스케쥴링 된 실행 순서로 CPU에 올리는 것<br>  dispatch : ready &gt; running<br>  컨텍스트 저장, 불러오기 등의 업무를 수행 </li>
+<li>Context Switching Overhead<br>  프로세스 전환할 때 발생하는 부담 </li>
+<li>어셈블리 같은 효율이 높은 low level 언어로 개발함</li>
+</ul>
+</li>
+</ol>
+<h4 id="관련-링크"><a href="#관련-링크" class="headerlink" title="관련 링크"></a>관련 링크</h4><blockquote>
+<p><a href="http://www.kocw.net/home/cview.do?lid=4d6edd5be1bf7328" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-1. 이중모드, 하드웨어 보호</a><br><a href="http://www.kocw.net/home/cview.do?lid=e34946c46a14c879" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-2. 운영체제 서비스</a><br><a href="http://www.kocw.net/home/cview.do?lid=75841ea60ec70dc9" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-3. 프로세스 관리</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/15/200715/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -161,7 +369,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/15/200715/" class="post-title-link" itemprop="url">운영체제 1</a>
+            <a href="/2020/07/15/200715/" class="post-title-link" itemprop="url">운영체제 1, 2</a>
         </h2>
 
         <div class="post-meta">
@@ -178,7 +386,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 00:25:00" itemprop="dateModified" datetime="2020-07-16T00:25:00+09:00">2020-07-16</time>
+                <time title="Modified: 2020-07-20 13:13:21" itemprop="dateModified" datetime="2020-07-20T13:13:21+09:00">2020-07-20</time>
               </span>
 
           
@@ -1095,83 +1303,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Daniel Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/04/hello-world/" class="post-title-link" itemprop="url">Hellow World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-04 16:12:30" itemprop="dateCreated datePublished" datetime="2020-05-04T16:12:30+09:00">2020-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-23 02:50:14" itemprop="dateModified" datetime="2020-05-23T02:50:14+09:00">2020-05-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1241,12 +1372,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
