@@ -258,7 +258,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-21 17:12:02 / Modified: 19:33:59" itemprop="dateCreated datePublished" datetime="2020-07-21T17:12:02+09:00">2020-07-21</time>
+              <time title="Created: 2020-07-21 17:12:02 / Modified: 19:40:27" itemprop="dateCreated datePublished" datetime="2020-07-21T17:12:02+09:00">2020-07-21</time>
             </span>
 
           
@@ -347,7 +347,7 @@
 <h3 id="2-CPU-Scheduling-Algorithms"><a href="#2-CPU-Scheduling-Algorithms" class="headerlink" title="2. CPU Scheduling Algorithms"></a>2. CPU Scheduling Algorithms</h3><ol>
 <li>FCFS(First-come, first-served)<ul>
 <li>단순, 공정</li>
-<li>평균 대기 시간의 함정에 빠질 수 있음<br><img src="https://photos.app.goo.gl/BiKvYp75zqB5UYAz6" alt="fcfs_find_average_waiting_time"></li>
+<li>평균 대기 시간의 함정에 빠질 수 있음<br><img src="https://lh3.googleusercontent.com/o1YfFRrMFrB1PpUHO9BsTmGmOjtCdbqIAc-9RJHW37WPjDyPKEzIH8b9sdNeyaVcIaRXj7lGIcNSGQS9fVAyYr0916W_yQ3UiuVk5Ye5eCIulQ79wwie-olgwfK6HNa03IEyCucabLb3GQKzp3dKhC7EWJH9M7xvChaEHVvvP6X7RjcvqrrZ3xcGfLQM9mIm5TreFpVOi9frfiI0ErO57MMW3DLU811pc7Gb6MKMSp5FAoSVZWUS99Yn-stbkYY4gcoceB_4zCJverI_zSROrJ8UvhDXmcQ6rnTo91OLcaM6aCSgjunp_inTlGpX7ErdQXD5zYWrW8ag2k-E3kOqscW2FFo2rLWGaImSodOO-5J9B5y7Lix6DMplY5TYTg8IR8dTvkr9vQKA57jGjAGHsPR98aA5WIMo0xCTqq1U0vwZPPZRnpIrDa0ljYYYArG3RLFieifLsXInKt6Zc6jNYbAebMOt54Y0Y2YmGWNTXP1u8I8ra-wNgaKwPUPcCG3L1W0qy6ghVNVcyAVP7J4za0Q9tCWy2S65cQHDqeFPkhBrh_R6s0KtlohecV08SFp4CJZsBXTQbHBtey-psnRo_Xe9l4zcwSCjuy64kITnd16ed06lM79GlMWfTL74hs3B8TUniLKVtEs3A7e1emJ5NLulh7oQMilFZjDBAv4PDg0NMbr_GL_zLFP2n0R7=w960-h396-no?authuser=0" alt="fcfs_find_average_waiting_time"></li>
 <li>Convoy Effect(호위 효과) : 실행 시간이 오래 걸리는 작업이 앞에 위치해 다른 작업들이 줄줄이 뒤따르는 현상</li>
 <li>비선점 스케쥴링</li>
 </ul>
@@ -357,7 +357,7 @@
 <li>평균 대기시간을 단축할 수 있음 (증명 완료)</li>
 <li>단점 : 실제 실행 시간이 얼마나 걸릴지 정확히 알 수 없음, 이전의 작업을 통해 실행시간을 예측해서 측정해야 함</li>
 <li>선점, 비선점 모두 가능<pre><code>Non-preemptive : p1 &gt; p2 &gt; p4 &gt; p3 = (0 + (8-1) + (17-2) + (12-3))/4 = 7.75 ms
-preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + (17 - 2) + (5 - 3))/4 = 6.5 ms // 최소잔여시간 우선 shortest-remaining-time-first, 실행 중 작업 추가되면 최소잔여시간 비교하여 선점 작업 교체</code></pre><img src="https://photos.app.goo.gl/dgoz5gLjczTje3EB7" alt="sjf_find_average_waiting_time"></li>
+preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + (17 - 2) + (5 - 3))/4 = 6.5 ms // 최소잔여시간 우선 shortest-remaining-time-first, 실행 중 작업 추가되면 최소잔여시간 비교하여 선점 작업 교체</code></pre><img src="https://lh3.googleusercontent.com/FxF96AGTJg8m5MqxqLIKhoeYWSEAIri47_qQbAjEel6DtsdsHsIQ1HSvrFOSJWd-oxfI_l5_QC7s3uzkfg1eYdV8JV5gCR_0OIQti9LJQpxSNmLC5HKCGuLFf5ideAPu_6dX4u36i8wgfxOJrRJOTKcge6FvHjmOJ56a0sLC26-G819bISZbyE7QX9rqfXcZC1HpSAQ9oJ0FLAiwC6sn5tERJ5AdZXs7W_INsYFt1o9mimybirnH3FLObdp_3J6qQatYD59SmjCnTXaJ0qn56ybI4kWWzxZYIn_goBUG5EZR_qd6J2P5XeFQTJ_J1KXhDBwqL10ko5xInOhSxVmQiC5mc6Suxv8_jQwtcbleME0DdWwQQ2CyH2rRXeFcV0gvUO9VEVDITPHynMwN4T8O_-6duaILXletn8Knisv2XNSTXnr2uqhxaYuNE_wy3GVdwHyPTMIsGU7X1i4JXyesNNs16txf-lAT14jtsVHjoRHxM8TsgMzxZ3cifg2cXuWHgNaY2ldw8XDxIKYaXFj44UWlDE8yDwMJWDfY1k4pXvYMt5xUlCOVopxo0itU7Ne4_xnfdI2wYdkXjuslI7OtwLNkFRGqwDmjrhTdiFfN8qJAZ15nlzh_U0kxJGFBVwqXNfybnLXkrtB1Fw_Y7v9CrM3OXW5TfNKqf-gbrvRDF6g3Vxs1sQWov9dSt9N4=w960-h492-no?authuser=0" alt="sjf_find_average_waiting_time"></li>
 </ul>
 </li>
 <li>Priority Scheduling<ul>
@@ -366,7 +366,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
 <li>선점, 비선점 모두 가능</li>
 <li>우선순위에 밀려 대기시간이 길어지는 starvation(기아) 현상 발생</li>
 <li>단점 해결 : aging, 대기시간을 우선순위 선정에 반영함</li>
-<li>p2 &gt; p5 &gt; p1 &gt; p3 &gt; p4 = (6 + 0 + 16 + 18 + 1) / 5 = 8.2 ms<br><img src="https://photos.app.goo.gl/AC325nfTjEK1Weez6" alt="priority_find_average_waiting_time"></li>
+<li>p2 &gt; p5 &gt; p1 &gt; p3 &gt; p4 = (6 + 0 + 16 + 18 + 1) / 5 = 8.2 ms<br><img src="https://lh3.googleusercontent.com/CGWVrth1kFJ-xhczyvgvEZgW1AE2mE9ZtKeUYioScWU5S7skRSCZpLzl844kAKWWEWS2C0rBOWDuUEFU-LCkT_id5ZRf5Jo0MHnD-cU4w7ip8WOKRhk0g5s_6ovUHxKPjDAPCkhRAZarCIIaYOzd9ZkdG4ucF8ILTjN5EaL3wbeHgJMPnKy03qWyu5UWdpzqhHtUZ3xBZQqKE4vljc0Ya-vDHc5PTlR2bPff9q9nXdkZTRhW4CpG9i-DCCEi_lsJD0I4ipFMae-A9XidVRXDt5tPrLMF_7qkWEtN8PIB_2-m1rCL6QyyHjIG5T9cLBWNfrflWgFMw177TI_EHqC8TZtTTidAdP_RBzLpVI9TFD0Zg7Ygw4wj0lZGcHFC7GopzuINY8Xbs01t-eF7ltovdElouH9841qQivYIqmU97X2T9uW3KvIrTLAxSyQAiUAQiAdDqpRxssUVS7PeokZR1kcvNrJd1IJj4ac8zUCBFT5if2YlQJ9gYhagWKH0m802ptn3H-cZQtCn2lLdhAI6rGGQGEGy2A-dzxN_4U5nDKvHZ2s8zBOr2PzSDzouRRzOkBTDKxSm5Dy4cKB2yAbav7NgnMQkhz7r-ckdpHLBeu_aN4wTv5OV5_mX2j5L_JfAGFbnkloSBNM8Y9jja9dnsduf-td8Nj0O8NjZbdSzvCI_SLfuKmTRPbJ35V9z=w960-h490-no?authuser=0" alt="priority_find_average_waiting_time"></li>
 </ul>
 </li>
 <li>Round-Robin<ul>
@@ -374,7 +374,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
 <li>Time Quantum(∆)은 보통 10~100ms, <code>time quantum에 따라 성능이 결정됨</code> </li>
 <li><em>하지만 time quantum을 0으로 수렴하면 잦은 context switching으로 overhead가 발생함</em></li>
 <li>Only Preeemptive</li>
-<li>(Time Quantum : 4ms) p1 &gt; p2 &gt; p3 &gt; p1 &gt; p1 &gt; p1 … = (0 + 3 + 3) + 4 + (4 + 3) = 17 / 3 = 5.66 ms<br><img src="https://photos.app.goo.gl/EXDfJ6WacTWvH3aV7" alt="round_robin_find_average_waiting_time"></li>
+<li>(Time Quantum : 4ms) p1 &gt; p2 &gt; p3 &gt; p1 &gt; p1 &gt; p1 … = (0 + 3 + 3) + 4 + (4 + 3) = 17 / 3 = 5.66 ms<br><img src="https://lh3.googleusercontent.com/L5UmEIJsEuuQCci8jJaFT_GdvF13F4gRFl1oD7JLNruWvbY-pjIkZK8-_SIVo8Inn2bZ0zwJL38p6G3eyJKBnH4tfqHgS3y4atf0JiB98gDQs_a9RlcVp0cGMbTcXo6GsewkE80q7e3ECj5wLNQG0EtUckEerjLxu1vAtXcuDYTTINvZ1zTwCCW2eybceBySxtGffn3Y3uBP8VFrMpNUHenyf9OMeuwgukQgP6Y1n3VmSjv3Y4xtKLJgA_kItR9SqZ__AlcT2ZeX0akbSl2jzq7WLXM0CqVkd3ie51hhnRDEzzNsX2vSuwFWy6t9eL9_nzo_9V30p57JntoBzhR8fTu7Wt37IildbHIG4Od2AwfDRIE279U7WNfxn63Z5WiPb3XJXkDf3DxOoTFrGrSJ95hHSl7pGPqVdTwOlw_FLeXT5KgtUrS-HhMSVfplkkXhRvPs5-b9ApXM9ISRAz6pF552DD963Zb7EpJ0VEOiJ1V0BZKfR1upxYGXN6nw5A29w55UK25F_6Mp4ierFYsxnnSnQTmG2wI1Gnbf-yJO_VXOKi8K2kMf3AZoBQZFKs9bnxAsuEHy2AQNe4P6ZYOe3BTof6Lz9gfDXqOPIICFxeTFYIOP1CZA9xRMI7T0-1IySV2sDY4iIJrQQ6LB2s9dOCkFDJPCNMCIiPzeEcPt859efdPjlu4iNZAZF30I=w960-h442-no?authuser=0" alt="round_robin_find_average_waiting_time"></li>
 </ul>
 </li>
 <li>Multilevel Queue Scheduling<ul>
@@ -400,8 +400,8 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
 </li>
 <li><p>exec() : 실행 파일을 메모리로 가져옴 <em>.exe파일</em></p>
 </li>
-<li><p>exit() : 프로세스 종료, 프로세스 실행 시 가졌던 리소스(메모리, 파일, I/O 등)는 모두 OS에 반환<br><img src="https://photos.app.goo.gl/CJpSy7hXmka2FHcf7" alt="윈도우 프로세스"></p>
-<p><img src="https://photos.app.goo.gl/JQYS2tE3b3tMJhRy7" alt="ubuntu 리눅스 프로세스"></p>
+<li><p>exit() : 프로세스 종료, 프로세스 실행 시 가졌던 리소스(메모리, 파일, I/O 등)는 모두 OS에 반환<br><img src="https://lh3.googleusercontent.com/h1yTlnM5amriiATz1cWn2RM3PzhkOtD4ZFvNV5LVAYLQw-q4u7AJY5XU5nUchHHnYEVjyQwPJJ2vzAmQyj2UubpmBW_iRTnT1SIUIVLbqlWh5iUQFOPCb21o5IS4v2C_il-_Xrecd2yTgk045rEtPbUDeySmKZUiNb32hva8C0xhn6TnwJNyC8RETDtM5yI73k_EMJ9RmhFHMTttV47zOcHuGdYxTAd_Dc9FAHNDaLMO5CDTRQswDF5Z1kUab6qNzJ9qoh2wotW9icqIIAG7y1NR7BggO6vxe8ffsvOtZiq1NY3ZVCYzmiBs3JguKDca3IrL7MH4Kh8fxhQlVGeB_x_4HtMtr2GHnYmBEWZESY6t4-ISO0DJq0EAUOxLRCVtqGXfEMDzoTgb4heOObCMuvO5ho4VFzFV60Vb2cIcO3e6DZfl7flliRuXTLe0aN35muH3Z6t83-gpoBt5mqrAGeZuWyCT6t5AeKVgFKE1_kUvKixVfRU8o_jq5Gt_m7zF57BO3BsiPhYVl5IIkfvEtD9cbn6B7FdhPzOJYhV7CRQyKCfFxkAlj4smsEFJczGEdL2Ait1DeEMeE2bMtMc8fGWfL49rudgn25lesotRLk9HPu24WGznHKVYEV-q78dxz4il3jDTbActSV2ywIrZybcTbjXalIemodm35R4PYdghQzhyHgXbh7JRZXXH=w706-h738-no?authuser=0" alt="윈도우 프로세스"></p>
+<p><img src="https://lh3.googleusercontent.com/5o0w6qn84B1AayoH7Y8VAk7LxR6U8SEWWaIIxex2gpkL0mz4u6C6kh9uvVZ3CLshVf4QG6eqKT505mXOgfphkojuHGqcSbplfuKDd1sXPkIgrP3EOrqC-JDYal07ionccrQ2kplw_seJJDpqnK_J3HitweC1Nw1h5viD1CjbBztuFzWoAgzqra8heIcPF3q-pxqBXbkU8qeHwaLWq8icFZOkYbYMCbtWEwVbGT3hGqWedGvC96H59jf_0rTqQIzwSwiNJbtJnqXpgxO4XpHxG4MezeW3_KzSlvj36XlxpuK7rP9gD_KSuUKDdpbQ2EJ0ye9vq4fBzbjbV_3ON-AdY8_royjumvwgDpKTKV10bKacFvuZLSeIFA3kXOYsbYOfLvdBdZo_hcvMPIwlf1p4JXYCp_jhYHgi_RUMwIgne_vSDjObvMzLdgTIFOD66ZSlKDwSMY-8spXKekmwe5oaUKkgymllWe2f7rlrDZavao4NXxIew4C8xRgU2ocAuWt0uQxzjMnS_IEJx_dK-LyxCOPFXZVhOCTo88RiUxuHR7lkOJcZ-d4n6vlgNo3-LISNIAshihe1zN5oTriI74kfdGw5UwdSHc3JRlXEFgxhQ9cKlK01_Fdb-XADJaQHYKfQXgB-_qDc1Ba52zT0V0hr1RvP9X5GFUcjZ-LXH7pnqpoJaNV6REtiMdMwxrLL=w960-h578-no?authuser=0" alt="ubuntu 리눅스 프로세스"></p>
 </li>
 </ul>
 </li>
