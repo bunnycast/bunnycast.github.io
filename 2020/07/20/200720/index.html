@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="II. Interrupt-Based System1. 인터럽트 인터럽트(중단, 새치기) 프로세서(CPU)가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 또는 예외상황이 발생하여 처리가 필요할 경우에 프로세서에게 알려 처리할 수 있도록 하는 것 현대 운영체제는 인터럽트 기반 시스템 부팅이 끝난 후 운영체제는 메모리에 상주(resident)하며 사">
+<meta property="og:type" content="article">
+<meta property="og:title" content="운영체제 3">
+<meta property="og:url" content="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/20/200720/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="II. Interrupt-Based System1. 인터럽트 인터럽트(중단, 새치기) 프로세서(CPU)가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 또는 예외상황이 발생하여 처리가 필요할 경우에 프로세서에게 알려 처리할 수 있도록 하는 것 현대 운영체제는 인터럽트 기반 시스템 부팅이 끝난 후 운영체제는 메모리에 상주(resident)하며 사">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-20T03:17:26.000Z">
+<meta property="article:modified_time" content="2020-07-31T04:08:50.190Z">
+<meta property="article:author" content="Daniel Kim">
+<meta property="article:tag" content="OS, 200720 TIL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/20/200720/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>운영체제 3 | My Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">My Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/bunnycast" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/20/200720/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          운영체제 3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-20 12:17:26" itemprop="dateCreated datePublished" datetime="2020-07-20T12:17:26+09:00">2020-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-31 13:08:50" itemprop="dateModified" datetime="2020-07-31T13:08:50+09:00">2020-07-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="II-Interrupt-Based-System"><a href="#II-Interrupt-Based-System" class="headerlink" title="II. Interrupt-Based System"></a>II. Interrupt-Based System</h2><h3 id="1-인터럽트"><a href="#1-인터럽트" class="headerlink" title="1. 인터럽트"></a>1. 인터럽트</h3><ol>
+<li>인터럽트(중단, 새치기)<ul>
+<li>프로세서(CPU)가 프로그램을 실행하고 있을 때, 입출력 하드웨어 등의 장치나 또는 예외상황이 발생하여 처리가 필요할 경우에 프로세서에게 알려 처리할 수 있도록 하는 것</li>
+<li>현대 운영체제는 인터럽트 기반 시스템</li>
+<li>부팅이 끝난 후 운영체제는 메모리에 상주(resident)하며 사건(event)을 기다리며 대기</li>
+</ul>
+</li>
+<li>하드웨어 인터럽트<ul>
+<li>인터럽트 결과 운영체제 내의 특정 코드(Interrupt Service Routine) 실행</li>
+<li>실행 종료 후 대기</li>
+<li>키보드 마우스 입력 등의 동작</li>
+</ul>
+</li>
+<li>소프트웨어 인터럽트(swi)<ul>
+<li>애플리케이션이 실행중 다른 프로그램을 실행 시 소프트웨어 인터럽트 발생(예: hwp 이용 중 하드에서 파일을 읽어오는 경우)</li>
+<li>ISR 실행, 종료 후 원래 프로그램으로 복귀</li>
+</ul>
+</li>
+<li>내부 인터럽트(Internal Interrupt)<ul>
+<li>divide by zero</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-이중모드"><a href="#2-이중모드" class="headerlink" title="2. 이중모드"></a>2. 이중모드</h3><ol>
+<li>한(1) 컴퓨터를 여러 사람(N)이 동시에 사용하는 것 <ul>
+<li>여러 개의 프로그램을 한 사람이 사용 </li>
+<li>한 사람의 고의 혹은 실수 프로그램이 전체에 영향</li>
+</ul>
+</li>
+<li>사용자 프로그램은 STOP 등의 치명적 명령에 접근 불가하도록 설정<ul>
+<li>User Vs Supervisor(System, Monitor, Priviliged)</li>
+</ul>
+</li>
+<li>특권 명령(priviliged instructions)<ul>
+<li>STOP, HALT, RESET, SET_TIMER, SET_HW …</li>
+</ul>
+</li>
+<li>CPU = register(bit) + ALU(연산장치) + ControlUnit<ul>
+<li>register : carry, negative, zero, overflow 등의 모드(flag 0/1)로 표현 </li>
+<li>register에 이중모드를 나타내는 bit를 추가 </li>
+</ul>
+</li>
+<li>이중모드 작동 process<ul>
+<li>Power On -&gt; Booting (<code>System Mode 1</code>)</li>
+<li>Application, User Program (System Mode 1인 상태에서 프로그램 메모리에 로딩 &gt; System Mode 0 &gt; User Mode)</li>
+<li>인터럽트 (ex : Application 의 Data를 HDD에 저장, 프린트 등), <code>System Mode 1</code> &gt; User Mode</li>
+<li>즉 하나의 프로그램이 실행될 때 이중모드의 상태가 계속 변경된다.</li>
+<li>User Mode에서 강제로 특권 명령 실행 시도할 경우<br>  권한 없는 사용자가 잘못된 명령을 내렸다는 내부 인터럽트 발생하여 ISR에 의해프로그램 강제 종료</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-보호-Protection"><a href="#3-보호-Protection" class="headerlink" title="3. 보호(Protection)"></a>3. 보호(Protection)</h3><ol>
+<li>입출력장치 보호 <ul>
+<li>키보드, 마우스, 프린터, 랜, 스피커, 모니터 등</li>
+<li>IN / OUT 명령어를 특권 명령으로 설정</li>
+<li>User Mode에서 명령 접속시 priviliged instruction violation으로 인식하여 ISR 실행하여 프로그램 강제 종료</li>
+<li>solution : 운영체제에 요청하여 System Mode로 전환 후 작업 &gt; 작업 마치면 User Mode 복귀, 올바른 요청이 아니면 거부</li>
+</ul>
+</li>
+<li>메모리 보호<ul>
+<li>다른 사용자의 메모리, 운영체제 영역 메모리 접근 (Hacking)</li>
+<li>Segment Violation 발생</li>
+<li>CPU -&gt; [ <code>MMU</code> (BASE~LIMIT) ] -&gt; MEMORY : Address Bus<br>  잘못 접근할 시 ISR 실행</li>
+<li>Memory Management Unit의 BASE, LIMIT 값 설정은 특권명령</li>
+</ul>
+</li>
+<li>CPU 보호<ul>
+<li>한 사용자가 실수 혹은 고의로 CPU 시간 독점 (ex : 재귀 함수)</li>
+<li>solution : Timer를 두어 일정시간 경과 시 타이머 인터럽트<br>  인터럽트 &gt; OS &gt; 다른 프로그램으로 강제 전환</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-운영체제-서비스-OS-Government"><a href="#4-운영체제-서비스-OS-Government" class="headerlink" title="4. 운영체제 서비스 (OS = Government)"></a>4. 운영체제 서비스 (OS = Government)</h3><ol>
+<li>프로세스 관리(Process Management)<ul>
+<li>프로세스 : 메모리에서 <code>실행 중</code>인 프로그램(program in execution)</li>
+<li>프로세스 생성, 소멸(creation, deletion)</li>
+<li>활동 일시 중지, 재개(suspend, resume)</li>
+<li>프로세스간 통신(IPC:interprocess communication)</li>
+<li>동기화(synchronization)</li>
+<li>교착상태 처리(deadlock handling)</li>
+</ul>
+</li>
+<li>주기억장치 관리(Main Memory Management)<ul>
+<li>프로세스에 메모리 할당 (allocation)</li>
+<li>할당된 메모리 추적, 감시</li>
+<li>프로세스 종료 시 메모리 회수</li>
+<li><code>메모리의 효과적 사용</code></li>
+<li>가상메모리 : 실제 메모리보다 큰 용량의 메모리 갖도록</li>
+</ul>
+</li>
+<li>파일 관리(File Management)<ul>
+<li>Track/Sector - ‘파일’ Mapping</li>
+<li>파일/디렉토리의 생성, 삭제 및 기본 동작 (open, close, read, write, create, delete)</li>
+<li>백업</li>
+</ul>
+</li>
+<li>보조기억장치 관리(Secondary Storage Management)<ul>
+<li>HDD, Flash Memory etc</li>
+<li>빈 공간(block) 관리, 할당, 스케쥴링</li>
+</ul>
+</li>
+<li>입출력 장치 관리(I/O Device Management)<ul>
+<li>하드웨어 장치 드라이브</li>
+<li>buffering, caching, spooling등의 방법으로 입출력 장치 성능 향상</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-시스템-콜-System-Call"><a href="#5-시스템-콜-System-Call" class="headerlink" title="5. 시스템 콜(System Call)"></a>5. 시스템 콜(System Call)</h3><ul>
+<li>프로그램 &gt; 운영체제 서비스를 받기 위한 호출</li>
+<li>Process: end, abort, load, execute, create, terminate, get/set<br>attributes, wait event, signal event </li>
+<li>Memory: allocate, free</li>
+<li>File: create, delete, open, close, read, write, get/set attributes</li>
+<li>Device: request, release, read, write, get/set attributes,<br>attach/detache devices</li>
+<li>Information: get/set time, get/set system data</li>
+<li>Communication: socket, send, receive</li>
+</ul>
+<h4 id="관련-링크"><a href="#관련-링크" class="headerlink" title="관련 링크"></a>관련 링크</h4><blockquote>
+<p><a href="http://www.kocw.net/home/cview.do?lid=4d6edd5be1bf7328" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-1. 이중모드, 하드웨어 보호</a><br><a href="http://www.kocw.net/home/cview.do?lid=e34946c46a14c879" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-2. 운영체제 서비스</a><br><a href="http://www.kocw.net/home/cview.do?lid=75841ea60ec70dc9" target="_blank" rel="noopener">경성대학교 양희재 교수 운영체제 강의 3-3. 프로세스 관리</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OS-200720-TIL/" rel="tag"># OS, 200720 TIL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/15/200715/" rel="prev" title="운영체제 1, 2">
+      <i class="fa fa-chevron-left"></i> 운영체제 1, 2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/21/200721/" rel="next" title="운영체제 4">
+      운영체제 4 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#II-Interrupt-Based-System"><span class="nav-number">1.</span> <span class="nav-text">II. Interrupt-Based System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-인터럽트"><span class="nav-number">1.1.</span> <span class="nav-text">1. 인터럽트</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-이중모드"><span class="nav-number">1.2.</span> <span class="nav-text">2. 이중모드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-보호-Protection"><span class="nav-number">1.3.</span> <span class="nav-text">3. 보호(Protection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-운영체제-서비스-OS-Government"><span class="nav-number">1.4.</span> <span class="nav-text">4. 운영체제 서비스 (OS &#x3D; Government)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-시스템-콜-System-Call"><span class="nav-number">1.5.</span> <span class="nav-text">5. 시스템 콜(System Call)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#관련-링크"><span class="nav-number">1.5.1.</span> <span class="nav-text">관련 링크</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Daniel Kim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Kim</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
