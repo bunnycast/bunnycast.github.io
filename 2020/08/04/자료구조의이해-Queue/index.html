@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.fun-coding.org/00_Images/queue.png">
 <meta property="article:published_time" content="2020-08-04T07:40:00.000Z">
-<meta property="article:modified_time" content="2020-08-04T08:19:46.567Z">
+<meta property="article:modified_time" content="2020-08-04T08:47:57.853Z">
 <meta property="article:author" content="Daniel Kim">
 <meta property="article:tag" content="자료구조">
 <meta property="article:tag" content="Queue">
@@ -180,7 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:19:46" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
+              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:47:57" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +235,7 @@
 <p>참고 : 어디에서 큐가 많이 쓰이나?<br>    - 멀티태스킹을 위한 프로세스 스케쥴링 구현 시 (<a href="https://bunnycast.github.io/2020/07/21/200721/#3-Queue" target="_blank" rel="noopener">운영체제 참조</a>)</p>
 </blockquote>
 <h3 id="4-프로그래밍-연습"><a href="#4-프로그래밍-연습" class="headerlink" title="4. 프로그래밍 연습"></a>4. 프로그래밍 연습</h3><ul>
-<li>연습1: 리스트 변수로 큐를 다루는 enqueue, dequeue 기능 구현해보기<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">queue_list = list()</span><br><span class="line"></span><br><span class="line"><span class="comment"># enqueue 구현</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function">    <span class="title">queue_list</span>.<span class="title">append</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"># <span class="title">dequeue</span> 구현<span class="params">(Fi data indexing &gt; delete)</span></span></span><br><span class="line"><span class="function"><span class="title">def</span> <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line">    data = queue_list[0]</span><br><span class="line">    <span class="keyword">del</span> queue_list[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    enqueue(index)</span><br><span class="line"></span><br><span class="line">len(queue_list)</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line">dequeue()</span><br><span class="line"><span class="comment"># 0, 1, 2, ...</span></span><br></pre></td></tr></table></figure></li>
+<li>리스트 변수로 큐를 다루는 enqueue, dequeue 기능 구현해보기<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">queue_list = list()</span><br><span class="line"></span><br><span class="line"><span class="comment"># enqueue 구현</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function">    <span class="title">queue_list</span>.<span class="title">append</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"># <span class="title">dequeue</span> 구현<span class="params">(Fi data indexing &gt; delete)</span></span></span><br><span class="line"><span class="function"><span class="title">def</span> <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line">    data = queue_list[0]</span><br><span class="line">    <span class="keyword">del</span> queue_list[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    enqueue(index)</span><br><span class="line"></span><br><span class="line">len(queue_list)</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line">dequeue()</span><br><span class="line"><span class="comment"># 0, 1, 2, ...</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -260,8 +260,8 @@
       <i class="fa fa-chevron-left"></i> 자료구조의이해_배열
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Stack/" rel="next" title="자료구조의이해-stack">
-      자료구조의이해-stack <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Stack/" rel="next" title="자료구조의이해-Stack">
+      자료구조의이해-Stack <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -344,7 +344,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/h1yTlnM5amriiATz1cWn2RM3PzhkOtD4ZFvNV5LVAYLQw-q4u7AJY5XU5nUchHHnYEVjyQwPJJ2vzAmQyj2UubpmBW_iRTnT1SIUIVLbqlWh5iUQFOPCb21o5IS4v2C_il-_Xrecd2yTgk045rEtPbUDeySmKZUiNb32hva8C0xhn6TnwJNyC8RETDtM5yI73k_EMJ9RmhFHMTttV47zOcHuGdYxTAd_Dc9FAHNDaLMO5CDTRQswDF5Z1kUab6qNzJ9qoh2wotW9icqIIAG7y1NR7BggO6vxe8ffsvOtZiq1NY3ZVCYzmiBs3JguKDca3IrL7MH4Kh8fxhQlVGeB_x_4HtMtr2GHnYmBEWZESY6t4-ISO0DJq0EAUOxLRCVtqGXfEMDzoTgb4heOObCMuvO5ho4VFzFV60Vb2cIcO3e6DZfl7flliRuXTLe0aN35muH3Z6t83-gpoBt5mqrAGeZuWyCT6t5AeKVgFKE1_kUvKixVfRU8o_jq5Gt_m7zF57BO3BsiPhYVl5IIkfvEtD9cbn6B7FdhPzOJYhV7CRQyKCfFxkAlj4smsEFJczGEdL2Ait1DeEMeE2bMtMc8fGWfL49rudgn25lesotRLk9HPu24WGznHKVYEV-q78dxz4il3jDTbActSV2ywIrZybcTbjXalIemodm35R4PYdghQzhyHgXbh7JRZXXH=w706-h738-no?authuser=0">
 <meta property="og:image" content="https://lh3.googleusercontent.com/5o0w6qn84B1AayoH7Y8VAk7LxR6U8SEWWaIIxex2gpkL0mz4u6C6kh9uvVZ3CLshVf4QG6eqKT505mXOgfphkojuHGqcSbplfuKDd1sXPkIgrP3EOrqC-JDYal07ionccrQ2kplw_seJJDpqnK_J3HitweC1Nw1h5viD1CjbBztuFzWoAgzqra8heIcPF3q-pxqBXbkU8qeHwaLWq8icFZOkYbYMCbtWEwVbGT3hGqWedGvC96H59jf_0rTqQIzwSwiNJbtJnqXpgxO4XpHxG4MezeW3_KzSlvj36XlxpuK7rP9gD_KSuUKDdpbQ2EJ0ye9vq4fBzbjbV_3ON-AdY8_royjumvwgDpKTKV10bKacFvuZLSeIFA3kXOYsbYOfLvdBdZo_hcvMPIwlf1p4JXYCp_jhYHgi_RUMwIgne_vSDjObvMzLdgTIFOD66ZSlKDwSMY-8spXKekmwe5oaUKkgymllWe2f7rlrDZavao4NXxIew4C8xRgU2ocAuWt0uQxzjMnS_IEJx_dK-LyxCOPFXZVhOCTo88RiUxuHR7lkOJcZ-d4n6vlgNo3-LISNIAshihe1zN5oTriI74kfdGw5UwdSHc3JRlXEFgxhQ9cKlK01_Fdb-XADJaQHYKfQXgB-_qDc1Ba52zT0V0hr1RvP9X5GFUcjZ-LXH7pnqpoJaNV6REtiMdMwxrLL=w960-h578-no?authuser=0">
 <meta property="article:published_time" content="2020-07-21T08:12:02.000Z">
-<meta property="article:modified_time" content="2020-08-01T14:13:57.822Z">
+<meta property="article:modified_time" content="2020-08-04T08:28:06.586Z">
 <meta property="article:author" content="Daniel Kim">
 <meta property="article:tag" content="OS, 200721 TIL">
 <meta name="twitter:card" content="summary">
@@ -190,7 +190,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
+                <time title="Modified: 2020-08-04 17:28:06" itemprop="dateModified" datetime="2020-08-04T17:28:06+09:00">2020-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +229,7 @@
 <li>프로세스에 대한 모든 상태 정보가 담겨 있음<br>  process state, PC(program counter, 순서), register, MMU(base, limit), CPU Time, id, list of open files …</li>
 <li>OS의 프로세스 관리 부서에 위치함</li>
 </ul>
-<h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ol>
+<h3 id="3-Queue-name-‘Queue’"><a href="#3-Queue-name-‘Queue’" class="headerlink" title="3. Queue{: name = ‘Queue’}"></a>3. Queue{: name = ‘Queue’}</h3><ol>
 <li>Job Queue (long-term scheduler, 메모리가 빌때만 작동하므로 시간이 많이 소요됨)<ul>
 <li>프로세서에 의해서 처리되기를 기다리고 있는 job의 집단이나 대기 행렬</li>
 <li>Job Scheduler : Job Queue의 우선순위 결정, OS의 프로세스 관리 부서</li>
@@ -433,7 +433,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#III-프로세스-관리"><span class="nav-number">1.</span> <span class="nav-text">III. 프로세스 관리</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-프로세스"><span class="nav-number">1.1.</span> <span class="nav-text">1. 프로세스</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-PCB-Process-Control-Block"><span class="nav-number">1.2.</span> <span class="nav-text">2. PCB (Process Control Block)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Queue"><span class="nav-number">1.3.</span> <span class="nav-text">3. Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Multiprogramming"><span class="nav-number">1.4.</span> <span class="nav-text">4. Multiprogramming</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IV-CPU-스케쥴링"><span class="nav-number">2.</span> <span class="nav-text">IV. CPU 스케쥴링</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CPU-Scheduling"><span class="nav-number">2.1.</span> <span class="nav-text">1. CPU Scheduling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CPU-Scheduling-Algorithms"><span class="nav-number">2.2.</span> <span class="nav-text">2. CPU Scheduling Algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-프로세스의-생성과-종료"><span class="nav-number">2.3.</span> <span class="nav-text">3. 프로세스의 생성과 종료</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#관련-링크"><span class="nav-number">2.3.1.</span> <span class="nav-text">관련 링크</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#III-프로세스-관리"><span class="nav-number">1.</span> <span class="nav-text">III. 프로세스 관리</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-프로세스"><span class="nav-number">1.1.</span> <span class="nav-text">1. 프로세스</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-PCB-Process-Control-Block"><span class="nav-number">1.2.</span> <span class="nav-text">2. PCB (Process Control Block)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Queue-name-‘Queue’"><span class="nav-number">1.3.</span> <span class="nav-text">3. Queue{: name &#x3D; ‘Queue’}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Multiprogramming"><span class="nav-number">1.4.</span> <span class="nav-text">4. Multiprogramming</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IV-CPU-스케쥴링"><span class="nav-number">2.</span> <span class="nav-text">IV. CPU 스케쥴링</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CPU-Scheduling"><span class="nav-number">2.1.</span> <span class="nav-text">1. CPU Scheduling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CPU-Scheduling-Algorithms"><span class="nav-number">2.2.</span> <span class="nav-text">2. CPU Scheduling Algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-프로세스의-생성과-종료"><span class="nav-number">2.3.</span> <span class="nav-text">3. 프로세스의 생성과 종료</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#관련-링크"><span class="nav-number">2.3.1.</span> <span class="nav-text">관련 링크</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,7 +456,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

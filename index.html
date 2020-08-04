@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Stack/" class="post-title-link" itemprop="url">자료구조의이해-stack</a>
+            <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Stack/" class="post-title-link" itemprop="url">자료구조의이해-Stack</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-04 17:20:32 / Modified: 17:20:51" itemprop="dateCreated datePublished" datetime="2020-08-04T17:20:32+09:00">2020-08-04</time>
+              <time title="Created: 2020-08-04 17:20:32 / Modified: 17:47:55" itemprop="dateCreated datePublished" datetime="2020-08-04T17:20:32+09:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url" rel="index"><span itemprop="name">자료구조와 알고리즘</span></a>
+                </span>
             </span>
 
           
@@ -186,7 +195,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
+<li>데이터를 제한적으로 접근하는 구조<ul>
+<li>한쪽 끝에서만 자료를 넣거나 뺌</li>
+</ul>
+</li>
+<li>LIFO : 책을 쌓아놓고 맨 위에 쌓인 책부터 빼는 구조</li>
+</ul>
+<h3 id="1-스택-구조"><a href="#1-스택-구조" class="headerlink" title="1. 스택 구조"></a>1. 스택 구조</h3><ul>
+<li>LIFO / FILO<ul>
+<li>LIFO : 마지막에 넣은 데이터를 가장 먼저 추출<blockquote>
+<p>FILO : 처음에 넣은 데이터를 가장 마지막에 추출</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>대표적인 스택의 활용<ul>
+<li>컴퓨터 내부의 <code>프로세스 구조의 함수</code> 동작 방식</li>
+</ul>
+</li>
+<li>주요 기능<ul>
+<li>push() : 데이터를 스택에 넣기</li>
+<li>pop() : 데이터를 스택에서 꺼내기<br><a href="https://visualgo.net/en/list" target="_blank" rel="noopener">stack 시연</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="http://www.fun-coding.org/00_Images/stack.png" alt="stack"></p>
+<h3 id="2-스택-구조-프로세스-스택"><a href="#2-스택-구조-프로세스-스택" class="headerlink" title="2. 스택 구조 / 프로세스 스택"></a>2. 스택 구조 / 프로세스 스택</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 재귀함수</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recursive</span><span class="params">(data)</span>:</span></span><br><span class="line"><span class="keyword">if</span> data &lt; <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'ended'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(data)</span><br><span class="line">    recursive(data - <span class="number">1</span>)</span><br><span class="line">    print(<span class="string">'returned'</span>, data)</span><br><span class="line"></span><br><span class="line">recursive(<span class="number">4</span>)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">4</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string">0</span></span><br><span class="line"><span class="string">-1</span></span><br><span class="line"><span class="string">ended</span></span><br><span class="line"><span class="string">returned 0</span></span><br><span class="line"><span class="string">returned 1</span></span><br><span class="line"><span class="string">returned 2</span></span><br><span class="line"><span class="string">returned 3</span></span><br><span class="line"><span class="string">returned 4</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-자료구조-스택의-장단점"><a href="#3-자료구조-스택의-장단점" class="headerlink" title="3. 자료구조 스택의 장단점"></a>3. 자료구조 스택의 장단점</h3><ul>
+<li>장점<ul>
+<li>구조가 단순해서 구현이 쉽다</li>
+<li>데이터 저장, 읽기 속도가 빠르다</li>
+</ul>
+</li>
+<li>단점 (일반적인 스택 구현시)<ul>
+<li>데이터 최대 갯수를 미리 확보해야 한다<blockquote>
+<p>파이썬의 경우 1,000번까지 호출 가능</p>
+</blockquote>
+</li>
+<li>저장 공간의 낭비가 발생할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-python-stack-methods"><a href="#4-python-stack-methods" class="headerlink" title="4. python stack methods"></a>4. python stack methods</h3><ul>
+<li>append(push) / pop</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">data_stack = list()</span><br><span class="line"></span><br><span class="line"><span class="comment"># push</span></span><br><span class="line">data_stack.append(<span class="number">1</span>)</span><br><span class="line">data_stack.append(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(data_stack)</span><br><span class="line"><span class="comment"># [1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pop</span></span><br><span class="line">data_stack.pop()</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line">data_stack.pop()</span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-프로그래밍-연습"><a href="#5-프로그래밍-연습" class="headerlink" title="5. 프로그래밍 연습"></a>5. 프로그래밍 연습</h3><ul>
+<li>리스트 변수로 스택을 다루는 pop, push 기능 구현해보기 (pop, push 함수 사용하지 않고 직접 구현해보기)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">stack_list = list()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(data)</span>:</span></span><br><span class="line">    stack_list.append(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">()</span>:</span></span><br><span class="line">    data = stack_list[<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">del</span> stack_list[<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    push(i)</span><br><span class="line"></span><br><span class="line">print(stack_list)</span><br><span class="line"><span class="comment"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"></span><br><span class="line">pop()</span><br><span class="line"><span class="comment"># 9</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -230,7 +291,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:19:46" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
+              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:47:57" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +346,7 @@
 <p>참고 : 어디에서 큐가 많이 쓰이나?<br>    - 멀티태스킹을 위한 프로세스 스케쥴링 구현 시 (<a href="https://bunnycast.github.io/2020/07/21/200721/#3-Queue" target="_blank" rel="noopener">운영체제 참조</a>)</p>
 </blockquote>
 <h3 id="4-프로그래밍-연습"><a href="#4-프로그래밍-연습" class="headerlink" title="4. 프로그래밍 연습"></a>4. 프로그래밍 연습</h3><ul>
-<li>연습1: 리스트 변수로 큐를 다루는 enqueue, dequeue 기능 구현해보기<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">queue_list = list()</span><br><span class="line"></span><br><span class="line"><span class="comment"># enqueue 구현</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function">    <span class="title">queue_list</span>.<span class="title">append</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"># <span class="title">dequeue</span> 구현<span class="params">(Fi data indexing &gt; delete)</span></span></span><br><span class="line"><span class="function"><span class="title">def</span> <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line">    data = queue_list[0]</span><br><span class="line">    <span class="keyword">del</span> queue_list[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    enqueue(index)</span><br><span class="line"></span><br><span class="line">len(queue_list)</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line">dequeue()</span><br><span class="line"><span class="comment"># 0, 1, 2, ...</span></span><br></pre></td></tr></table></figure></li>
+<li>리스트 변수로 큐를 다루는 enqueue, dequeue 기능 구현해보기<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">queue_list = list()</span><br><span class="line"></span><br><span class="line"><span class="comment"># enqueue 구현</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function">    <span class="title">queue_list</span>.<span class="title">append</span><span class="params">(data)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"># <span class="title">dequeue</span> 구현<span class="params">(Fi data indexing &gt; delete)</span></span></span><br><span class="line"><span class="function"><span class="title">def</span> <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line">    data = queue_list[0]</span><br><span class="line">    <span class="keyword">del</span> queue_list[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    enqueue(index)</span><br><span class="line"></span><br><span class="line">len(queue_list)</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line">dequeue()</span><br><span class="line"><span class="comment"># 0, 1, 2, ...</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -637,7 +698,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
+                <time title="Modified: 2020-08-04 17:28:06" itemprop="dateModified" datetime="2020-08-04T17:28:06+09:00">2020-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -676,7 +737,7 @@
 <li>프로세스에 대한 모든 상태 정보가 담겨 있음<br>  process state, PC(program counter, 순서), register, MMU(base, limit), CPU Time, id, list of open files …</li>
 <li>OS의 프로세스 관리 부서에 위치함</li>
 </ul>
-<h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ol>
+<h3 id="3-Queue-name-‘Queue’"><a href="#3-Queue-name-‘Queue’" class="headerlink" title="3. Queue{: name = ‘Queue’}"></a>3. Queue{: name = ‘Queue’}</h3><ol>
 <li>Job Queue (long-term scheduler, 메모리가 빌때만 작동하므로 시간이 많이 소요됨)<ul>
 <li>프로세서에 의해서 처리되기를 기다리고 있는 job의 집단이나 대기 행렬</li>
 <li>Job Scheduler : Job Queue의 우선순위 결정, OS의 프로세스 관리 부서</li>
@@ -1413,7 +1474,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
