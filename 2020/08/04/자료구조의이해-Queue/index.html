@@ -20,23 +20,23 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1. git, github, git : 버전 관리 시스템 (Version Control System) github : git 데이터를 저장하는 서버 (cf. gitlab, bitbucket) CLI(Command Line Interface) vs GUI(Graphic User Interface) git –version : 버전확인 git –config us">
+  <meta name="description" content="큐(Queue)1. 큐 구조 줄을 서는 행위와 유사 가장 먼저 넣은 데이터를 가장 먼저 꺼냄 음식점에서 줄을 선 순서대로 입장하는 것과 동일 FIFO(First-In, First-Out) &#x2F; LILO(Last-In, Last-Out) 방식으로 스택과 반대      출처: http:&#x2F;&#x2F;www.stoimen.com&#x2F;blog&#x2F;2012&#x2F;06&#x2F;05&#x2F;computer-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="200504">
-<meta property="og:url" content="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/06/200504/index.html">
+<meta property="og:title" content="자료구조의이해-Queue">
+<meta property="og:url" content="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Queue/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="1. git, github, git : 버전 관리 시스템 (Version Control System) github : git 데이터를 저장하는 서버 (cf. gitlab, bitbucket) CLI(Command Line Interface) vs GUI(Graphic User Interface) git –version : 버전확인 git –config us">
+<meta property="og:description" content="큐(Queue)1. 큐 구조 줄을 서는 행위와 유사 가장 먼저 넣은 데이터를 가장 먼저 꺼냄 음식점에서 줄을 선 순서대로 입장하는 것과 동일 FIFO(First-In, First-Out) &#x2F; LILO(Last-In, Last-Out) 방식으로 스택과 반대      출처: http:&#x2F;&#x2F;www.stoimen.com&#x2F;blog&#x2F;2012&#x2F;06&#x2F;05&#x2F;computer-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-06T09:39:03.000Z">
-<meta property="article:modified_time" content="2020-08-01T14:13:57.811Z">
+<meta property="og:image" content="https://www.fun-coding.org/00_Images/queue.png%22">
+<meta property="article:published_time" content="2020-08-04T07:40:00.000Z">
+<meta property="article:modified_time" content="2020-08-04T08:08:18.719Z">
 <meta property="article:author" content="Daniel Kim">
-<meta property="article:tag" content="200504">
-<meta property="article:tag" content="git">
-<meta property="article:tag" content="github">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="자료구조">
+<meta property="article:tag" content="Queue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.fun-coding.org/00_Images/queue.png%22">
 
-<link rel="canonical" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/06/200504/">
+<link rel="canonical" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Queue/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>200504 | My Blog</title>
+  <title>자료구조의이해-Queue | My Blog</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/06/200504/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Queue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          200504
+          자료구조의이해-Queue
         </h1>
 
         <div class="post-meta">
@@ -178,23 +178,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-06 18:39:03" itemprop="dateCreated datePublished" datetime="2020-05-06T18:39:03+09:00">2020-05-06</time>
+              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:08:18" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                  <a href="/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url" rel="index"><span itemprop="name">자료구조와 알고리즘</span></a>
                 </span>
             </span>
 
@@ -209,100 +203,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-git-github"><a href="#1-git-github" class="headerlink" title="1. git, github,"></a>1. git, github,</h2><ul>
-<li>git : 버전 관리 시스템 (Version Control System)</li>
-<li>github : git 데이터를 저장하는 서버 (cf. gitlab, bitbucket)</li>
-<li>CLI(Command Line Interface) vs GUI(Graphic User Interface)</li>
-<li>git –version : 버전확인</li>
-<li>git –config user.name or code.editor : 기본설정</li>
-<li>git –help : 매뉴얼 치트키</li>
-</ul>
-<h2 id="2-gitbash-개요"><a href="#2-gitbash-개요" class="headerlink" title="2. gitbash 개요"></a>2. gitbash 개요</h2><ul>
-<li>gitbash : user@pcname:~$<ul>
-<li>~ : 사용자 최상단 폴더</li>
-<li>$ : 명령 대기 상태 </li>
-</ul>
-</li>
-<li>기본 명령어<ul>
-<li>cd : change directory, cd ., cd .., cd <foldername></li>
-<li>ls : 하위 디렉토리 및 파일 조회, -a 숨김파일 조회 </li>
-<li>mkdir : make directory</li>
-<li>touch : make file</li>
-<li>mv : 이동, rename</li>
-<li>rm : remove file</li>
-<li>rm -rf : remove folder</li>
-<li>pwd : 절대 경로 조회</li>
-<li>chmod : 파일의 권한 설정 (not supported at git bash)<ul>
-<li>d, - : direcory, file</li>
-<li>000 000 000 : user group other (0~7)</li>
-<li>rwx : read write execute</li>
-<li><ul>
-<li>: no permission</li>
+        <h2 id="큐-Queue"><a href="#큐-Queue" class="headerlink" title="큐(Queue)"></a>큐(Queue)</h2><h3 id="1-큐-구조"><a href="#1-큐-구조" class="headerlink" title="1. 큐 구조"></a>1. 큐 구조</h3><ul>
+<li>줄을 서는 행위와 유사</li>
+<li>가장 먼저 넣은 데이터를 가장 먼저 꺼냄<ul>
+<li>음식점에서 줄을 선 순서대로 입장하는 것과 동일</li>
+<li><code>FIFO(First-In, First-Out)</code> / <code>LILO(Last-In, Last-Out)</code> 방식으로 스택과 반대</li>
 </ul>
 </li>
 </ul>
+<p><img src="https://www.fun-coding.org/00_Images/queue.png%22" alt="Queue"></p>
+<ul>
+<li>출처: <a href="http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/" target="_blank" rel="noopener">http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/</a></li>
+</ul>
+<h3 id="2-큐-용어"><a href="#2-큐-용어" class="headerlink" title="2. 큐 용어"></a>2. 큐 용어</h3><ul>
+<li>Enqueue : 데이터를 큐에 넣음</li>
+<li>Dequeue : 데이터를 큐에서 꺼냄<br><a href="https://visualgo.net/en/list" target="_blank" rel="noopener">queue 시연</a></li>
+</ul>
+<h3 id="3-python-Queue-Library"><a href="#3-python-Queue-Library" class="headerlink" title="3. python Queue Library"></a>3. python Queue Library</h3><ol>
+<li><p>Queue() &gt; FIFO</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.Queue()</span><br><span class="line"></span><br><span class="line"><span class="comment"># put: 데이터를 큐에 넣음(enqueue)</span></span><br><span class="line">data_queue.put(<span class="string">"test"</span>)</span><br><span class="line">data_queue.put(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># qsize : 큐의 길이를 구함</span></span><br><span class="line">data_queue.qzise()</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get : 먼저 넣은 데이터부터 출력</span></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 'test'</span></span><br><span class="line"></span><br><span class="line">data_queue.qsize()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line">data_queue.qsize()</span><br><span class="line"><span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>LifoQueue() &gt; Last-In, First-Out</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.LifoQueue()</span><br><span class="line"></span><br><span class="line">data_queue.put(<span class="string">"test"</span>)</span><br><span class="line">data_queue.put(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<h2 id="3-vim"><a href="#3-vim" class="headerlink" title="3. vim"></a>3. vim</h2><ul>
-<li>기본적인 텍스트 에디터 (cf. Emacs)</li>
-<li>vi 파일명 형태로 구동</li>
-<li>기본 명령어<ul>
-<li>:q  quit</li>
-<li>:wq write quit</li>
-<li>:set nu 줄보기 옵션</li>
-</ul>
+<li><p>PriorityQueue() &gt; 우선순위(ascending)에 따라 out</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.PriorityQueue()</span><br><span class="line"></span><br><span class="line"><span class="comment"># put(priority, data)</span></span><br><span class="line">data_queue.put((<span class="number">10</span>,<span class="string">" korea"</span>))</span><br><span class="line">data_queue.put((<span class="number">5</span>, <span class="number">1</span>))</span><br><span class="line">data_queue.put((<span class="number">15</span>,<span class="string">" US"</span>))</span><br><span class="line"></span><br><span class="line">data_queue.qzize()</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># (5, 1)</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># (10, "korea")</span></span><br></pre></td></tr></table></figure>
+
 </li>
-<li>기본 동작<ul>
-<li>paste : shift + ins</li>
-<li>ESC to escpae</li>
-</ul>
-</li>
-</ul>
-<h1 id="4-git-Process-important"><a href="#4-git-Process-important" class="headerlink" title="4. git Process (important!)"></a>4. git Process (important!)</h1><ul>
-<li>Blob(파일) -&gt; Tree(파일모음) -&gt; Commit(기능이 작동하는 최소단위)</li>
-<li>Workspace(local pc) -&gt; Index(stage) -&gt; Local Repositary(log 추가) -&gt; Remote Repository(github)</li>
-<li>add -&gt; commit -&gt; push // pull &amp; clone </li>
-<li>git status : 현재 파일의 상태 조회</li>
-<li>git init : git 초기화 선언</li>
-<li>git remote and <name> [url] : github의 repo 경로와 pc의 로컬 경로를 연결</li>
-<li>git add <filename> : on stage, 커밋 대상으로 올리는 것 (untracked -&gt; tracked)<ul>
-<li>git add . 수정한 모든 파일 추가</li>
-</ul>
-</li>
-<li>git commit : 파일에 변경 로그를 추가하여 push 준비함<ul>
-<li>git commit -m “변경로그”</li>
-<li>commit 주요 상태값<ul>
-<li>feat: features</li>
-<li>docs: documentations </li>
-<li>conf: configuration</li>
-<li>fix: bug-fix</li>
-<li>reafact: refactoring</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>git push -u <name> master : 깃헙으로 푸시 <ul>
-<li>-<a href="https://blog.naver.com/codeitofficial/221946628621" target="_blank" rel="noopener">u(set-upstream) 옵션</a></li>
-</ul>
-</li>
-<li>git clone [repo url] : github에서 repo를 생성해 로컬 피씨로 가져오는 방법</li>
-<li>git pull <name> master : 다른 작업자의 repo에 commit한 소스를 내 repo로 끌어옴</li>
-</ul>
-<h2 id="5-github-블로그"><a href="#5-github-블로그" class="headerlink" title="5. github 블로그"></a>5. github 블로그</h2><ul>
-<li>생성 : username.github.io</li>
-<li>.gitignore : 특정 파일을 추적하지 않도록 설정하여 크롤링 방지<ul>
-<li><a href="http://gitignore.io/" target="_blank" rel="noopener">파일 생성 사이트</a></li>
-<li>특정 파일을 추가하고 싶은 경우 : *.확장자 형태로 기입</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-HEXO-프레임워크-연결"><a href="#6-HEXO-프레임워크-연결" class="headerlink" title="6. HEXO 프레임워크 연결"></a>6. HEXO 프레임워크 연결</h2><ul>
-<li>node.js 설치, npm 설치, hexo 설치<br>npm install -g 파일명</li>
-<li>hexo init <foldername></li>
-<li>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo server : 가상환경 확인 가능</li>
-<li>hexo deploy : git push</li>
+</ol>
+<h3 id="참고-어디에서-큐가-많이-쓰이나"><a href="#참고-어디에서-큐가-많이-쓰이나" class="headerlink" title="참고 : 어디에서 큐가 많이 쓰이나?"></a>참고 : 어디에서 큐가 많이 쓰이나?</h3><ul>
+<li>멀티태스킹을 위한 프로세스 스케쥴링 구현 시 (<a href="">운영체제 참조</a>)</li>
 </ul>
 
     </div>
@@ -313,10 +243,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/200504/" rel="tag"># 200504</a>
-              <a href="/tags/git/" rel="tag"># git</a>
-              <a href="/tags/github/" rel="tag"># github</a>
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/" rel="tag"># 자료구조</a>
+              <a href="/tags/Queue/" rel="tag"># Queue</a>
           </div>
 
         
@@ -325,13 +253,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/04/hello-world/" rel="prev" title="Hellow World">
-      <i class="fa fa-chevron-left"></i> Hellow World
+    <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-%EB%B0%B0%EC%97%B4/" rel="prev" title="자료구조의이해_배열">
+      <i class="fa fa-chevron-left"></i> 자료구조의이해_배열
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/06/200506/" rel="next" title="200506">
-      200506 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -390,7 +315,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-git-github"><span class="nav-number">1.</span> <span class="nav-text">1. git, github,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-gitbash-개요"><span class="nav-number">2.</span> <span class="nav-text">2. gitbash 개요</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-vim"><span class="nav-number">3.</span> <span class="nav-text">3. vim</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-git-Process-important"><span class="nav-number"></span> <span class="nav-text">4. git Process (important!)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-github-블로그"><span class="nav-number">1.</span> <span class="nav-text">5. github 블로그</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-HEXO-프레임워크-연결"><span class="nav-number">2.</span> <span class="nav-text">6. HEXO 프레임워크 연결</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#큐-Queue"><span class="nav-number">1.</span> <span class="nav-text">큐(Queue)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-큐-구조"><span class="nav-number">1.1.</span> <span class="nav-text">1. 큐 구조</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-큐-용어"><span class="nav-number">1.2.</span> <span class="nav-text">2. 큐 용어</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-python-Queue-Library"><span class="nav-number">1.3.</span> <span class="nav-text">3. python Queue Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#참고-어디에서-큐가-많이-쓰이나"><span class="nav-number">1.4.</span> <span class="nav-text">참고 : 어디에서 큐가 많이 쓰이나?</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

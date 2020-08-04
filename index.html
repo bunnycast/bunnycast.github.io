@@ -147,6 +147,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-Queue/" class="post-title-link" itemprop="url">자료구조의이해-Queue</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-04 16:40:00 / Modified: 17:08:18" itemprop="dateCreated datePublished" datetime="2020-08-04T16:40:00+09:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url" rel="index"><span itemprop="name">자료구조와 알고리즘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="큐-Queue"><a href="#큐-Queue" class="headerlink" title="큐(Queue)"></a>큐(Queue)</h2><h3 id="1-큐-구조"><a href="#1-큐-구조" class="headerlink" title="1. 큐 구조"></a>1. 큐 구조</h3><ul>
+<li>줄을 서는 행위와 유사</li>
+<li>가장 먼저 넣은 데이터를 가장 먼저 꺼냄<ul>
+<li>음식점에서 줄을 선 순서대로 입장하는 것과 동일</li>
+<li><code>FIFO(First-In, First-Out)</code> / <code>LILO(Last-In, Last-Out)</code> 방식으로 스택과 반대</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://www.fun-coding.org/00_Images/queue.png%22" alt="Queue"></p>
+<ul>
+<li>출처: <a href="http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/" target="_blank" rel="noopener">http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/</a></li>
+</ul>
+<h3 id="2-큐-용어"><a href="#2-큐-용어" class="headerlink" title="2. 큐 용어"></a>2. 큐 용어</h3><ul>
+<li>Enqueue : 데이터를 큐에 넣음</li>
+<li>Dequeue : 데이터를 큐에서 꺼냄<br><a href="https://visualgo.net/en/list" target="_blank" rel="noopener">queue 시연</a></li>
+</ul>
+<h3 id="3-python-Queue-Library"><a href="#3-python-Queue-Library" class="headerlink" title="3. python Queue Library"></a>3. python Queue Library</h3><ol>
+<li><p>Queue() &gt; FIFO</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.Queue()</span><br><span class="line"></span><br><span class="line"><span class="comment"># put: 데이터를 큐에 넣음(enqueue)</span></span><br><span class="line">data_queue.put(<span class="string">"test"</span>)</span><br><span class="line">data_queue.put(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># qsize : 큐의 길이를 구함</span></span><br><span class="line">data_queue.qzise()</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get : 먼저 넣은 데이터부터 출력</span></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 'test'</span></span><br><span class="line"></span><br><span class="line">data_queue.qsize()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line">data_queue.qsize()</span><br><span class="line"><span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>LifoQueue() &gt; Last-In, First-Out</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.LifoQueue()</span><br><span class="line"></span><br><span class="line">data_queue.put(<span class="string">"test"</span>)</span><br><span class="line">data_queue.put(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PriorityQueue() &gt; 우선순위(ascending)에 따라 out</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data_queue = queue.PriorityQueue()</span><br><span class="line"></span><br><span class="line"><span class="comment"># put(priority, data)</span></span><br><span class="line">data_queue.put((<span class="number">10</span>,<span class="string">" korea"</span>))</span><br><span class="line">data_queue.put((<span class="number">5</span>, <span class="number">1</span>))</span><br><span class="line">data_queue.put((<span class="number">15</span>,<span class="string">" US"</span>))</span><br><span class="line"></span><br><span class="line">data_queue.qzize()</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># (5, 1)</span></span><br><span class="line"></span><br><span class="line">data_queue.get()</span><br><span class="line"><span class="comment"># (10, "korea")</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="참고-어디에서-큐가-많이-쓰이나"><a href="#참고-어디에서-큐가-많이-쓰이나" class="headerlink" title="참고 : 어디에서 큐가 많이 쓰이나?"></a>참고 : 어디에서 큐가 많이 쓰이나?</h3><ul>
+<li>멀티태스킹을 위한 프로세스 스케쥴링 구현 시 (<a href="">운영체제 참조</a>)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-%EB%B0%B0%EC%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -172,7 +270,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-04 16:07:27 / Modified: 16:35:20" itemprop="dateCreated datePublished" datetime="2020-08-04T16:07:27+09:00">2020-08-04</time>
+              <time title="Created: 2020-08-04 16:07:27 / Modified: 16:51:04" itemprop="dateCreated datePublished" datetime="2020-08-04T16:07:27+09:00">2020-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,9 +319,9 @@
 <h3 id="3-파이썬과-배열"><a href="#3-파이썬과-배열" class="headerlink" title="3. 파이썬과 배열"></a>3. 파이썬과 배열</h3><ul>
 <li>파이썬 리스트 활용</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1차원 배열 : 리스트로 구현시</span></span><br><span class="line">data = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">print(data) </span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1차원 배열 : 리스트로 구현시</span></span><br><span class="line">data_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">print(data_list) </span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열 : 리스트로 구현시</span></span><br><span class="line">data = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">print(data)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">print(data[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line">print(data[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열 : 리스트로 구현시</span></span><br><span class="line">data_list = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">print(data_list)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">print(data_list[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">print(data_list[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">print(data_list[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">print(data_list[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line">print(data_list[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>연습 : 2차원 배열 data에서 9,8,7 순서로 출력해보기<br>    print(data([2][2]), data[2][1], data[2][0])</p>
@@ -1255,140 +1353,6 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/11/200511/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Daniel Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/11/200511/" class="post-title-link" itemprop="url">200511</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-11 17:37:39" itemprop="dateCreated datePublished" datetime="2020-05-11T17:37:39+09:00">2020-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-branch"><a href="#1-branch" class="headerlink" title="1. branch"></a>1. branch</h2><ul>
-<li>분기점을 생성하고 독립적으로 코드를 변경하도록 도와주는 모델 </li>
-<li>git branch : 현재 생성된 branch를 확인할 수 있음 (* 현재 선택된 브랜치)<ul>
-<li>master<br>develop</li>
-</ul>
-</li>
-<li>코드작업에서 병목현상을 방지하며, 다수의 작업자가 복합적으로 프로젝트를 진행할 수 있도록 도와준다.</li>
-</ul>
-<h2 id="2-branch-vs-commit"><a href="#2-branch-vs-commit" class="headerlink" title="2. branch vs commit"></a>2. branch vs commit</h2><ul>
-<li>branch : 작업의 공간적 이동</li>
-<li>commit : 작업의 시간적 이동(체크포인트)</li>
-</ul>
-<h2 id="3-branch-주요-명령어"><a href="#3-branch-주요-명령어" class="headerlink" title="3. branch 주요 명령어"></a>3. branch 주요 명령어</h2><ul>
-<li>git branch -D [브랜치명] : 브랜치 삭제</li>
-<li>git checkout [브랜치명] : 브랜치 변경</li>
-</ul>
-<h2 id="4-merge와-conflict"><a href="#4-merge와-conflict" class="headerlink" title="4. merge와 conflict"></a>4. merge와 conflict</h2><ul>
-<li>merge : 각기 다른 브랜치에서 작업한 내용을 <strong>병합</strong> (a.k.a 땡겨옴) git merge 는 다른 브랜치를 현재 Checkout된 브랜치에 Merge 하는 명령</li>
-<li>conflict : 작업한 브랜치의 파일 버전보다 master 버전이 앞선 경우, 작업한 내용과 수정한 사항의 코드 충돌을 의미함<br>&lt;&lt;&lt;&lt;&lt; HEAD - 현재 브랜치에서 수정된 내용<br>========== - 구분자<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>boty-init - 끌어오는 브랜치의 수정내용</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>수정 후 solve: conflict로 커밋</li>
-</ul>
-<h2 id="5-master-branch의-의의"><a href="#5-master-branch의-의의" class="headerlink" title="5. master branch의 의의"></a>5. master branch의 의의</h2><ul>
-<li>사용자가 쓰게 될 최종 단계의 코드만 존재</li>
-<li>운영환경에서 작업하면 시말서 각</li>
-<li>develop 브랜치에서 개발, 테스트 이후 master 브랜치로 병합</li>
-</ul>
-<h2 id="6-git-flow"><a href="#6-git-flow" class="headerlink" title="6. git flow"></a>6. git flow</h2><p>master : 운영<br>  develop : 개발<br>    feature : 개발의 작은 기능 단위 </p>
-<h2 id="7-pull-request"><a href="#7-pull-request" class="headerlink" title="7. pull request"></a>7. pull request</h2><ul>
-<li>개인 환경에서 수정한 내용을 운영에 반영하도록 요청하는 단계</li>
-</ul>
-<ol>
-<li>Fork : 프로젝트 관리자가 생성한 repo에서 신청 </li>
-<li>clone, remote설정<ul>
-<li>clone : 내 repo에 추가된 url (git clone urls)</li>
-<li>remote : 관리자의 repo 주소 추가 (git remote add [pmorigin] url)</li>
-</ul>
-</li>
-<li>branch 생성<ul>
-<li>develop</li>
-<li>feature/기능명</li>
-</ul>
-</li>
-<li>수정 작업 후 add, commit, push</li>
-<li>pull Request 생성<ul>
-<li>내 repo &gt; pull request 신청</li>
-</ul>
-</li>
-<li>코드리뷰, Merge Pull Reqest</li>
-<li>Merge 이후 branch 삭제 및 동기화</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1458,7 +1422,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1467,7 +1431,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
