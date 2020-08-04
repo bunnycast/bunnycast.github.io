@@ -147,6 +147,205 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-%EB%B0%B0%EC%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98%EC%9D%B4%ED%95%B4-%EB%B0%B0%EC%97%B4/" class="post-title-link" itemprop="url">자료구조의이해_배열</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-04 16:07:27 / Modified: 16:35:20" itemprop="dateCreated datePublished" datetime="2020-08-04T16:07:27+09:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url" rel="index"><span itemprop="name">자료구조와 알고리즘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h2><ul>
+<li>데이터의 나열</li>
+<li>각 데이터를 인덱스에 대응하도록 구성</li>
+<li>파이썬에서는 리스트 타입 배열 기능 제공</li>
+</ul>
+<h3 id="1-배열은-왜-필요할까"><a href="#1-배열은-왜-필요할까" class="headerlink" title="1. 배열은 왜 필요할까?"></a>1. 배열은 왜 필요할까?</h3><ul>
+<li>같은 종류의 데이터를 효율적으로 관리하기 위해</li>
+<li>나열된 데이터를 <code>순차적</code>으로 저장</li>
+<li>장점<ul>
+<li>인덱스 번호(첫 데이터의 위치로부터 상대적인 위치)로 빠른 접근 가능</li>
+</ul>
+</li>
+<li>단점 <ul>
+<li>미리 최대 길이가 지정돼있어 데이터의 추가 삭제가 어려움</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-파이썬과-C-배열-예제"><a href="#2-파이썬과-C-배열-예제" class="headerlink" title="2. 파이썬과 C 배열 예제"></a>2. 파이썬과 C 배열 예제</h3><ul>
+<li>C : country[3] 으로 배열의 최대 길이가 지정돼 있음<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> country[<span class="number">3</span>] = <span class="string">"US"</span>; </span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"%c%c\n"</span>, country[<span class="number">0</span>], country[<span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"%s\n"</span>, country);    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>python : 최대 길이 추가 삭제가 상대적으로 자유로움<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">country = <span class="string">'US'</span></span><br><span class="line">print(country)</span><br><span class="line"><span class="comment"># US</span></span><br><span class="line"></span><br><span class="line">country = country + <span class="string">'A'</span></span><br><span class="line">print(country)</span><br><span class="line"><span class="comment">#USA</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-파이썬과-배열"><a href="#3-파이썬과-배열" class="headerlink" title="3. 파이썬과 배열"></a>3. 파이썬과 배열</h3><ul>
+<li>파이썬 리스트 활용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1차원 배열 : 리스트로 구현시</span></span><br><span class="line">data = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">print(data) </span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열 : 리스트로 구현시</span></span><br><span class="line">data = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">print(data)</span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></span><br><span class="line"></span><br><span class="line">print(data[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">print(data[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line">print(data[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>연습 : 2차원 배열 data에서 9,8,7 순서로 출력해보기<br>    print(data([2][2]), data[2][1], data[2][0])</p>
+</blockquote>
+<blockquote>
+<p>연습 2 : 아래의 데이터 dataset 리스트에서 M이 몇번 나오는지 빈도수 출력</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">dataset = [<span class="string">'Braund, Mr. Owen Harris'</span>,</span><br><span class="line"><span class="string">'Cumings, Mrs. John Bradley (Florence Briggs Thayer)'</span>,</span><br><span class="line"><span class="string">'Heikkinen, Miss. Laina'</span>,</span><br><span class="line"><span class="string">'Futrelle, Mrs. Jacques Heath (Lily May Peel)'</span>,</span><br><span class="line"><span class="string">'Allen, Mr. William Henry'</span>,</span><br><span class="line"><span class="string">'Moran, Mr. James'</span>,</span><br><span class="line"><span class="string">'McCarthy, Mr. Timothy J'</span>,</span><br><span class="line"><span class="string">'Palsson, Master. Gosta Leonard'</span>,</span><br><span class="line"><span class="string">'Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)'</span>,</span><br><span class="line"><span class="string">'Nasser, Mrs. Nicholas (Adele Achem)'</span>,</span><br><span class="line"><span class="string">'Sandstrom, Miss. Marguerite Rut'</span>,</span><br><span class="line"><span class="string">'Bonnell, Miss. Elizabeth'</span>,</span><br><span class="line"><span class="string">'Saundercock, Mr. William Henry'</span>,</span><br><span class="line"><span class="string">'Andersson, Mr. Anders Johan'</span>,</span><br><span class="line"><span class="string">'Vestrom, Miss. Hulda Amanda Adolfina'</span>,</span><br><span class="line"><span class="string">'Hewlett, Mrs. (Mary D Kingcome) '</span>,</span><br><span class="line"><span class="string">'Rice, Master. Eugene'</span>,</span><br><span class="line"><span class="string">'Williams, Mr. Charles Eugene'</span>,</span><br><span class="line"><span class="string">'Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)'</span>,</span><br><span class="line"><span class="string">'Masselmani, Mrs. Fatima'</span>,</span><br><span class="line"><span class="string">'Fynney, Mr. Joseph J'</span>,</span><br><span class="line"><span class="string">'Beesley, Mr. Lawrence'</span>,</span><br><span class="line"><span class="string">'McGowan, Miss. Anna "Annie"'</span>,</span><br><span class="line"><span class="string">'Sloper, Mr. William Thompson'</span>,</span><br><span class="line"><span class="string">'Palsson, Miss. Torborg Danira'</span>,</span><br><span class="line"><span class="string">'Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)'</span>,</span><br><span class="line"><span class="string">'Emir, Mr. Farred Chehab'</span>,</span><br><span class="line"><span class="string">'Fortune, Mr. Charles Alexander'</span>,</span><br><span class="line"><span class="string">'Dwyer, Miss. Ellen "Nellie"'</span>,</span><br><span class="line"><span class="string">'Todoroff, Mr. Lalio'</span>]</span><br><span class="line"></span><br><span class="line">m_count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataset:</span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="keyword">if</span> data[index]==<span class="string">'M'</span>:</span><br><span class="line">            m_count += <span class="number">1</span></span><br><span class="line">print(m_count)</span><br><span class="line"><span class="comment"># 38</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/08/04/200804/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daniel Kim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/200804/" class="post-title-link" itemprop="url">자료구조와 알고리즘의 이해</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-04 15:27:38 / Modified: 16:09:00" itemprop="dateCreated datePublished" datetime="2020-08-04T15:27:38+09:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" itemprop="url" rel="index"><span itemprop="name">자료구조와 알고리즘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="자료구조와-알고리즘의-이해"><a href="#자료구조와-알고리즘의-이해" class="headerlink" title="자료구조와 알고리즘의 이해"></a>자료구조와 알고리즘의 이해</h2><h3 id="1-자료구조"><a href="#1-자료구조" class="headerlink" title="1. 자료구조"></a>1. 자료구조</h3><ul>
+<li>자료구조 ≒ 데이터 구조 ≒ data structure</li>
+<li>대량의 <code>데이터</code>를 <code>효율적</code>으로 관리할 수 있는 데이터의 <code>구조</code></li>
+<li>어떤 데이터 구조를 사용하느냐에 따라 코드 효율이 달라지므로, 데이터 특성에 따라 체계적으로 데이터를 구조화해야 함</li>
+</ul>
+<h3 id="2-효율적인-데이터-관리의-예"><a href="#2-효율적인-데이터-관리의-예" class="headerlink" title="2. 효율적인 데이터 관리의 예"></a>2. 효율적인 데이터 관리의 예</h3><ul>
+<li>zipcode : 5자리 우편번호로 국가의 기초구역을 제공 (시군구 코드 3자리 + 일련번호 2자리)</li>
+<li>학생 관리 : 학년 / 반 / 번 </li>
+</ul>
+<h3 id="3-대표적인-자료-구조"><a href="#3-대표적인-자료-구조" class="headerlink" title="3. 대표적인 자료 구조"></a>3. 대표적인 자료 구조</h3><ul>
+<li>개발 : 배열, 스택, 큐, 링크드 리스트, 해쉬 테이블, 힙 etc<br><em>현실 : 사전</em></li>
+</ul>
+<h3 id="4-알고리즘-algorithm"><a href="#4-알고리즘-algorithm" class="headerlink" title="4. 알고리즘 (algorithm)"></a>4. 알고리즘 (algorithm)</h3><ul>
+<li>어떤 문제를 풀기 위한 <code>절차/방법</code></li>
+<li>어떤 문제에 대해 특정한 ‘입력’을 넣으면 원하는 ‘출력’을 얻을 수 있도록 만드는 프로그래밍<br><em>현실 : 백종원 레시피</em></li>
+</ul>
+<h3 id="5-자료구조와-알고리즘의-중요성"><a href="#5-자료구조와-알고리즘의-중요성" class="headerlink" title="5. 자료구조와 알고리즘의 중요성"></a>5. 자료구조와 알고리즘의 중요성</h3><ul>
+<li>어떤 자료구조와 알고리즘을 쓰는지에 따라 성능 차이가 크게 남</li>
+<li>프로그래밍의 기술과 역량을 검증할 수 있음</li>
+</ul>
+<h3 id="6-자료구조-알고리즘-and-파이썬"><a href="#6-자료구조-알고리즘-and-파이썬" class="headerlink" title="6. 자료구조/알고리즘 and 파이썬"></a>6. 자료구조/알고리즘 and 파이썬</h3><ul>
+<li>C/C++ 에서 언어에 대한 제약과 평가가 없어지는 추세</li>
+<li>python : 가장 쉽고 빠르게 자료구조와 알고리즘을 익힐 수 있음 / 현업 사용도가 높음</li>
+</ul>
+<h3 id="7-기본-환경"><a href="#7-기본-환경" class="headerlink" title="7. 기본 환경"></a>7. 기본 환경</h3><ul>
+<li>컴파일러 : 프로그래밍 언어로 작성된 코드 -&gt; 컴퓨터가 실행할 수 있는 코드로 변환해주는 프로그램 </li>
+<li>라이브러리 : 소프트웨어 개발에 쓰이는 하부 프로그램들의 모임<br><em>pip install library-name</em></li>
+<li>에디터 / IDE : jupyter notebook, pycharm</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/07/21/200722/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -178,7 +377,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:34" itemprop="dateModified" datetime="2020-07-31T13:08:34+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +478,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:50" itemprop="dateModified" datetime="2020-07-31T13:08:50+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -489,7 +688,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:50" itemprop="dateModified" datetime="2020-07-31T13:08:50+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -681,7 +880,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:48" itemprop="dateModified" datetime="2020-07-31T13:08:48+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -849,7 +1048,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:36" itemprop="dateModified" datetime="2020-07-31T13:08:36+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -925,7 +1124,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:37" itemprop="dateModified" datetime="2020-07-31T13:08:37+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1012,7 +1211,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:38" itemprop="dateModified" datetime="2020-07-31T13:08:38+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1091,7 +1290,7 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:39" itemprop="dateModified" datetime="2020-07-31T13:08:39+09:00">2020-07-31</time>
+                <time title="Modified: 2020-08-01 23:13:57" itemprop="dateModified" datetime="2020-08-01T23:13:57+09:00">2020-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1190,203 +1389,6 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/11/200508/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Daniel Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/11/200508/" class="post-title-link" itemprop="url">200508.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-11 17:32:48" itemprop="dateCreated datePublished" datetime="2020-05-11T17:32:48+09:00">2020-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:40" itemprop="dateModified" datetime="2020-07-31T13:08:40+09:00">2020-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-MVC-패턴"><a href="#1-MVC-패턴" class="headerlink" title="1. MVC 패턴"></a>1. MVC 패턴</h2><p>모델-뷰-컨트롤러(Model–View–Controller, MVC)는 소프트웨어 공학에서 사용되는 소프트웨어 디자인 패턴이다. 이 패턴을 성공적으로 사용하면, 사용자 인터페이스로부터 비즈니스 로직을 분리하여 애플리케이션의 시각적 요소나 그 이면에서 실행되는 비즈니스 로직을 서로 영향 없이 쉽게 고칠 수 있는 애플리케이션을 만들 수 있다. MVC에서 모델은 애플리케이션의 정보(데이터)를 나타내며, 뷰는 텍스트, 체크박스 항목 등과 같은 사용자 인터페이스 요소를 나타내고, 컨트롤러는 데이터와 비즈니스 로직 사이의 상호동작을 관리한다.</p>
-<ul>
-<li>컨트롤러는 모델에 명령을 보냄으로써 모델의 상태를 변경할 수 있다. (예: 워드 프로세서에서 문서를 편집하는 것) 또, 컨트롤러가 관련된 뷰에 명령을 보냄으로써 모델의 표시 방법을 바꿀 수 있다. (문서를 스크롤하는 것)</li>
-<li>모델은 모델의 상태에 변화가 있을 때 컨트롤러와 뷰에 이를 통보한다. 이와 같은 통보를 통해서 뷰는 최신의 결과를 보여줄 수 있고, 컨트롤러는 모델의 변화에 따른 적용 가능한 명령을 추가·제거·수정할 수 있다. 어떤 MVC 구현에서는 통보 대신 뷰나 컨트롤러가 직접 모델의 상태를 읽어 오기도 한다.</li>
-<li>뷰는 사용자가 볼 결과물을 생성하기 위해 모델로부터 정보를 얻어 온다.</li>
-</ul>
-<h2 id="2-MVT-모델-뷰-템플릿-계층"><a href="#2-MVT-모델-뷰-템플릿-계층" class="headerlink" title="2. MVT (모델 뷰 템플릿 계층)"></a>2. MVT (모델 뷰 템플릿 계층)</h2><ul>
-<li><p>모델 : db와 연동, 데이터를 정의하고 사용하는데 활용</p>
-</li>
-<li><p>뷰 : 비즈니스 로직, url 파싱, 요청과 응답</p>
-</li>
-<li><p>템플릿 : html 코드 안에서 사용할 수 있는 문법</p>
-</li>
-<li><p>앱(기능의 최소 단위) &gt; 프로젝트 (앱의 집합으로 이뤄지는 하나의 서비스)</p>
-</li>
-</ul>
-<h2 id="3-django-기본-명령어"><a href="#3-django-기본-명령어" class="headerlink" title="3. django 기본 명령어"></a>3. django 기본 명령어</h2><p>django-admin startproject [project명]<br>django-admin startapp [app명]</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/bunnycast/bunnycast.github.io.git/2020/05/08/200507/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Daniel Kim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/08/200507/" class="post-title-link" itemprop="url">200507</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-08 09:31:23" itemprop="dateCreated datePublished" datetime="2020-05-08T09:31:23+09:00">2020-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-31 13:08:40" itemprop="dateModified" datetime="2020-07-31T13:08:40+09:00">2020-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/html-css/" itemprop="url" rel="index"><span itemprop="name">html/css</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-iframe의-반응형-구조"><a href="#1-iframe의-반응형-구조" class="headerlink" title="1. iframe의 반응형 구조"></a>1. iframe의 반응형 구조</h2><ul>
-<li>div : iframe 반응형 박스의 기준이 됨, 여기에 화면비 부여<br>div {<br>position: relative;<br>pdadding-top: 75%(4:3), 56.25%(16:9), 42.85%(21:9);<br>}<br>div iframe {<br>position: absolute;<br>top: 0;<br>left: 0;<br>width: 100%;<br>height: 100;<br>}</li>
-</ul>
-<h2 id="2-DTD"><a href="#2-DTD" class="headerlink" title="2. DTD"></a>2. DTD</h2><ul>
-<li>Document Type Definition, 문서 유형 정의 </li>
-<li>html 문서 최상단에 !DOCTYPE html 선언하는 것 </li>
-<li>문서의 정보 모델을 구체적으로 서술한 것으로서, 문서를 구성하는 정보 요소, 정보 요소의 구조와 특성 등 문서의 형태를 구조화 한 것</li>
-<li>웹브라우저에서 HTML 문서가 렌더링 되는 기준이 됨</li>
-<li>Standard Mode에서 Quirks Mode(호환 모드)</li>
-</ul>
-<h2 id="3-flex-grow"><a href="#3-flex-grow" class="headerlink" title="3. flex-grow"></a>3. flex-grow</h2><ul>
-<li>flex item에 적용하는 속성</li>
-<li>flex item 배열 이후 여백에 대한 활용 기준</li>
-<li>0 : 확장, 1 : 축소(기본값), auto : 자동</li>
-</ul>
-<h2 id="4-사용자-정의-속성"><a href="#4-사용자-정의-속성" class="headerlink" title="4. 사용자 정의 속성"></a>4. 사용자 정의 속성</h2><ul>
-<li>data-[customCode] 형태</li>
-<li>HTML에서 기본적으로 제공되는 속성이 아닌, 나만의 새로운 속성을 추가하고자 할 때에 사용됨</li>
-<li>html 5부터 지원 </li>
-</ul>
-<h2 id="5-호버시-팝업-처리"><a href="#5-호버시-팝업-처리" class="headerlink" title="5. 호버시 팝업 처리"></a>5. 호버시 팝업 처리</h2><p>  요소{<br>    content: attr(data-tooltip);<br>  }</p>
-<h2 id="6-text-overflow"><a href="#6-text-overflow" class="headerlink" title="6. text-overflow"></a>6. text-overflow</h2><ul>
-<li>텍스트 데이터가 칸을 넘어갈 때 … 등으로 처리 가능</li>
-<li>text-overflow: ellips;</li>
-<li>다만 아래의 속성과 같이 사용해야 함<br>text-overflow: ellips;<br>white-space: nowrap; //줄바꿈 허용 안함<br>overflow: hidden; //요소의 크기를 넘는 글자 안보여줌</li>
-</ul>
-<h2 id="7-css-함수-사용"><a href="#7-css-함수-사용" class="headerlink" title="7. css 함수 사용"></a>7. css 함수 사용</h2><ul>
-<li>counter-reset: num; /* counter 이름을 ‘num’으로 지정합니다 초기값은 0입니다. */</li>
-<li>counter-increment: num; /* section의 카운터 값을 1씩 증가시킵니다. <em>/<br>content: counter(num) /</em> section의 카운터 값을 표시합니다. */</li>
-</ul>
-<h2 id="8-특수문자-입력"><a href="#8-특수문자-입력" class="headerlink" title="8. 특수문자 입력"></a>8. 특수문자 입력</h2><ul>
-<li>html 특수문자 코드를 참조</li>
-<li>카피라이트 : &copy;<br>유로화 : &euro;<br>엔 : &yen;</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1456,16 +1458,16 @@ preemptive : p1(1) &gt; p2(4) &gt; p4(5) &gt; p1(7) &gt; p3(9) = ((0 + 9) + 0 + 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
